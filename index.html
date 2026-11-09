@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official portal of PAK IGNITERS. Empowering youth and businesses across Pakistan through digital innovation, creative web studios, commerce, practical academies, and leadership.">
+  <title>PAK IGNITERS | Unlock Your Potential - Learn. Create. Earn. Lead.</title>
+
+  <!-- Google Fonts: Inter, Outfit, Noto Nastaliq Urdu & Noto Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Brand Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Sticky Site Header
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-wrapper" aria-label="PAK IGNITERS Home">
+        <div class="brand-flame-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.17 2.84-7.67 6.69-8.69-.17.65-.26 1.34-.26 2.05 0 3.31 2.69 6 6 6 .71 0 1.4-.09 2.05-.26-1.02 3.85-4.52 6.69-8.69 6.69zm1.42-20.91c-.39-.12-.8-.12-1.19 0-.41.13-.75.4-1 .76-1.15 1.7-1.8 3.73-1.8 5.82 0 .54.05 1.07.14 1.58C10.74 8.78 12.06 7.6 13.7 7.05c1.65-.55 3.44-.35 4.93.55-1.05-1.92-2.58-3.48-4.47-4.51-.23-.13-.48-.22-.74-.27z"/>
+          </svg>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">PAK <span>IGNITERS</span></span>
+          <span class="brand-tagline-mini" data-i18n="nav.taglineMini">Unlock Your Potential</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#divisions" class="nav-link" data-i18n="nav.divisions">Divisions</a></li>
+        <li><a href="#team" class="nav-link" data-i18n="nav.team">Team Roles</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Get in Touch</a></li>
+      </ul>
+
+      <!-- Action Items: Language Switcher & Primary CTA -->
+      <div class="nav-actions">
+        <!-- English | Urdu Switcher -->
+        <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language / زبان تبدیل کریں" aria-label="Toggle Language">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span class="lang-label" data-i18n="nav.langSwitch">اردو</span>
+        </button>
+
+        <a href="#divisions" class="btn btn-primary" data-i18n="nav.cta">Explore Divisions</a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      
+      <!-- Staging Status Pill -->
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        <span data-i18n="hero.badge">Official Digital Hub • Staging v1.0</span>
+      </div>
+
+      <!-- Main Tagline -->
+      <h1 class="hero-headline" data-i18n="hero.headline">Unlock Your Potential.</h1>
+      
+      <!-- Supporting Message -->
+      <div class="hero-supporting" data-i18n="hero.supporting">Learn. Create. Earn. Lead.</div>
+
+      <!-- Value Proposition -->
+      <p class="hero-description" data-i18n="hero.description">
+        PAK IGNITERS is an integrated ecosystem dedicated to elevating Pakistan's technological, creative, and entrepreneurial talents through structured divisions, real-world execution, and collaborative mentorship.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#divisions" class="btn btn-accent" data-i18n="hero.ctaPrimary">Explore 6 Divisions</a>
+        <button class="btn btn-secondary" onclick="document.getElementById('chatTriggerBtn').click();" data-i18n="hero.ctaSecondary">
+          Ask Igniter AI
+        </button>
+      </div>
+
+      <!-- High-Level Metric Indicators -->
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <div class="stat-number">6</div>
+          <div class="stat-label" data-i18n="hero.stats.0.label">Specialized Divisions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label" data-i18n="hero.stats.1.label">Collaborative Leads</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label" data-i18n="hero.stats.2.label">Execution Focused</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       The Six Official Divisions Showcase
+       ======================================================================== -->
+  <section class="divisions-section" id="divisions">
+    <div class="container">
+      
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="divisions.title">Six Core Divisions</h2>
+        <p class="section-subtitle" data-i18n="divisions.subtitle">
+          Dedicated pillars powering our digital innovation, commerce solutions, professional education, and strategic leadership.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="division-tabs" id="divisionTabsContainer">
+        <button class="division-tab-btn active" data-filter="all" data-i18n="divisions.allTab">All Divisions</button>
+        <button class="division-tab-btn" data-filter="digital">Digital</button>
+        <button class="division-tab-btn" data-filter="commerce">Commerce</button>
+        <button class="division-tab-btn" data-filter="webstudio">Web Studio</button>
+        <button class="division-tab-btn" data-filter="academy">Academy</button>
+        <button class="division-tab-btn" data-filter="leadership">Leadership</button>
+        <button class="division-tab-btn" data-filter="business">Business Solutions</button>
+      </div>
+
+      <!-- Dynamically Rendered Division Cards Grid -->
+      <div class="divisions-grid" id="divisionsContainer">
+        <!-- Rendered by js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Team Collaboration Architecture & Responsibility Matrix
+       ======================================================================== -->
+  <section class="team-section" id="team">
+    <div class="container">
+      
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="collaboration.title">Team Collaboration Architecture</h2>
+        <p class="section-subtitle" data-i18n="collaboration.subtitle">
+          Three dedicated leads driving excellence across engineering, content, and e-commerce.
+        </p>
+      </div>
+
+      <!-- Team Members Grid (Ismail, Warda, Farwa) -->
+      <div class="team-grid" id="teamContainer">
+        <!-- Rendered by js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Contact & Inquiry System (Real Validation, Transparent Staging)
+       ======================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      
+      <div class="contact-box">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <h2 class="section-title" data-i18n="contact.title">Connect with PAK IGNITERS</h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">
+            Have a project inquiry, partnership request, or academy question? Reach our leadership team directly.
+          </p>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div class="form-alert" id="formAlert"></div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="formName" data-i18n="contact.form.nameLabel">Your Full Name</label>
+            <input type="text" id="formName" class="form-control" required placeholder="e.g. Ali Khan" data-i18n="contact.form.namePlaceholder">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formEmail" data-i18n="contact.form.emailLabel">Email Address</label>
+            <input type="email" id="formEmail" class="form-control" required placeholder="e.g. ali@example.com" data-i18n="contact.form.emailPlaceholder">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formDivision" data-i18n="contact.form.divisionLabel">Interested Division</label>
+            <select id="formDivision" class="form-control" required>
+              <option value="" disabled selected>Select a division</option>
+              <option value="digital">Pak Igniters Digital</option>
+              <option value="commerce">Pak Igniters Commerce</option>
+              <option value="webstudio">Pak Igniters Web Studio</option>
+              <option value="academy">Pak Igniters Academy</option>
+              <option value="leadership">Pak Igniters Leadership</option>
+              <option value="business">Pak Igniters Business Solutions</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formMessage" data-i18n="contact.form.messageLabel">Project Details or Question</label>
+            <textarea id="formMessage" class="form-control" required placeholder="Tell us about your requirements, inquiry, or goals..." data-i18n="contact.form.messagePlaceholder"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="contact.form.submitBtn">
+            Send Inquiry to Staging Log
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       AI Chatbot Floating Widget (Ismail's Deliverable)
+       ======================================================================== -->
+  <div class="chat-btn-container">
+    <button class="chat-trigger-btn" id="chatTriggerBtn" aria-label="Open AI Assistant">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+      </svg>
+      <span data-i18n="chatbot.triggerTitle">Chat with AI</span>
+    </button>
+  </div>
+
+  <!-- Chatbot Window -->
+  <div class="chat-window" id="chatWindow" role="dialog" aria-labelledby="chatHeaderTitle">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">AI</div>
+        <div class="chat-title-group">
+          <h4 id="chatHeaderTitle" data-i18n="chatbot.windowHeader">Igniter AI Assistant</h4>
+          <div class="chat-status">
+            <span class="chat-status-dot"></span>
+            <span data-i18n="chatbot.onlineStatus">Online • Knowledge Staging</span>
+          </div>
+        </div>
+      </div>
+      <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close Chat">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Messages History -->
+    <div class="chat-body" id="chatMessages">
+      <div class="chat-bubble bot" data-i18n="chatbot.greeting">
+        Salam & Welcome to PAK IGNITERS! I am your AI assistant. How can I help you explore our 6 divisions, academy programs, or website project today?
+      </div>
+
+      <!-- Quick Suggestion Chips -->
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-chip">Tell me about the 6 Divisions</button>
+        <button class="suggestion-chip">What does the Academy offer?</button>
+        <button class="suggestion-chip">How will WordPress migration work?</button>
+        <button class="suggestion-chip">Who is on the team?</button>
+      </div>
+    </div>
+
+    <!-- Chat Footer Input -->
+    <div class="chat-footer">
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your question here..." data-i18n="chatbot.inputPlaceholder">
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+          <svg viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Site Footer & Staging Notice
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div class="brand-wrapper" style="margin-bottom: 1rem;">
+            <div class="brand-flame-icon" style="width: 32px; height: 32px;">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px;">
+                <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.17 2.84-7.67 6.69-8.69-.17.65-.26 1.34-.26 2.05 0 3.31 2.69 6 6 6 .71 0 1.4-.09 2.05-.26-1.02 3.85-4.52 6.69-8.69 6.69z"/>
+              </svg>
+            </div>
+            <span class="brand-title">PAK <span>IGNITERS</span></span>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6;" data-i18n="footer.aboutText">
+            PAK IGNITERS is on a mission to empower youth, creators, and businesses across Pakistan through modern technology, e-commerce, and world-class education.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.divisionsHeading">Our Divisions</h5>
+          <ul class="footer-links">
+            <li><a href="#divisions" class="footer-link">Pak Igniters Digital</a></li>
+            <li><a href="#divisions" class="footer-link">Pak Igniters Commerce</a></li>
+            <li><a href="#divisions" class="footer-link">Pak Igniters Web Studio</a></li>
+            <li><a href="#divisions" class="footer-link">Pak Igniters Academy</a></li>
+            <li><a href="#divisions" class="footer-link">Pak Igniters Leadership</a></li>
+            <li><a href="#divisions" class="footer-link">Pak Igniters Business Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.quickLinksHeading">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link">Home Overview</a></li>
+            <li><a href="#divisions" class="footer-link">Explore Divisions</a></li>
+            <li><a href="#team" class="footer-link">Team Collaboration</a></li>
+            <li><a href="#contact" class="footer-link">Contact Inquiry</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.legalHeading">Staging Notice</h5>
+          <p style="font-size: 0.82rem; line-height: 1.6; color: var(--text-muted);" data-i18n="footer.stagingNotice">
+            This is a temporary development staging site deployed via Antigravity → GitHub → Vercel for team review. Final launch will occur on the approved official domain.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential.</span>
+        <span>Lead: Ismail Bhatti • WordPress Lead: Warda • Strategy Lead: Farwa</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Modules -->
+  <script src="js/content-data.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
