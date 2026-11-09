@@ -30,8 +30,8 @@
       ur: "پاک اگنائٹرز اکیڈمی طلباء کو عملی تربیت فراہم کرتی ہے۔ ہم فل اسٹیک ویب، ورڈپریس، ای کامرس اور جدید اے آئی ٹولز کے پریکٹیکل بوٹ کیمپس کرواتے ہیں۔ کیا آپ اکیڈمی کے مینٹور سے رابطہ کرنا چاہتے ہیں؟"
     },
     {
-      keywords: ["wordpress", "woocommerce", "warda", "shop", "store", "commerce", "وو کامرس", "وردہ", "اسٹور"],
-      en: "Pak Igniters Commerce is spearheaded by Warda (WordPress & WooCommerce Lead). We build custom WooCommerce storefronts, manage payment gateway integration (local and cross-border), and automate product catalogs.",
+      keywords: ["wordpress", "woocommerce", "warda", "wardah", "shop", "store", "commerce", "وو کامرس", "وردہ", "اسٹور"],
+      en: "Pak Igniters Commerce is spearheaded by Wardah (WordPress & WooCommerce Lead). We build custom WooCommerce storefronts, manage payment gateway integration (local and cross-border), and automate product catalogs.",
       ur: "پاک اگنائٹرز کامرس کی سربراہی وردہ (ورڈپریس اور وو کامرس لیڈ) کر رہی ہیں۔ ہم مکمل ای کامرس اسٹورز، ملکی و غیر ملکی پیمنٹ گیٹ ویز اور کیٹلاگ کا انتظام سنبھالتے ہیں۔"
     },
     {
@@ -179,7 +179,7 @@
     if (currentLang === "ur") {
       return "آپ کے سوال کا شکریہ! پاک اگنائٹرز کی ٹیم ہر قسم کی رہنمائی کے لیے حاضر ہے۔ آپ ہمارے ۶ شعبہ جات دیکھ سکتے ہیں یا نیچے رابطہ فارم کے ذریعے براہ راست پیغام بھیج سکتے ہیں۔";
     } else {
-      return "Thank you for reaching out! PAK IGNITERS is here to unlock your potential. Feel free to ask about any of our 6 divisions, or submit your query in the contact form below to connect with Ismail, Warda, or Farwa.";
+      return "Thank you for reaching out! PAK IGNITERS is here to unlock your potential. Feel free to ask about any of our 6 divisions, or submit your query in the contact form below to connect with Ismail, Wardah, or Farwa.";
     }
   }
 

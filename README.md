@@ -25,7 +25,7 @@ PAK IGNITERS empowers youth, creators, and enterprises across Pakistan through s
 | Team Member | Role | Responsibility Scope | Dedicated Branch |
 | :--- | :--- | :--- | :--- |
 | **Ismail** | AI, Creative & UI/UX Lead | AI chatbot engine, button interactions, UI/UX styling, graphics, and frontend performance | `dev-ismail` |
-| **Warda** | WordPress & WooCommerce Lead | WooCommerce product catalog, WordPress theme migration planning, and payment gateways | `dev-warda` |
+| **Wardah** | WordPress & WooCommerce Lead | WooCommerce product catalog, WordPress theme migration planning, and payment gateways | `dev-wardah` |
 | **Farwa** | Strategy, Content & Quality Lead | Bilingual copy (English & Urdu), SEO metadata, brand messaging, and QA testing | `dev-farwa` |
 
 ---
@@ -41,8 +41,8 @@ To ensure team members never overwrite each other's work:
    # For Ismail:
    git checkout dev-ismail
 
-   # For Warda:
-   git checkout dev-warda
+   # For Wardah:
+   git checkout dev-wardah
 
    # For Farwa:
    git checkout dev-farwa
@@ -64,7 +64,7 @@ pak-igniters-website/
 │   ├── chatbot.js              # Ismail's AI Chatbot & query engine (decoupled API)
 │   └── content-data.js         # Farwa's centralized bilingual content dictionary
 ├── wordpress-prep/
-│   ├── MIGRATION_GUIDE.md      # Warda's WordPress theme migration instructions
+│   ├── MIGRATION_GUIDE.md      # Wardah's WordPress theme migration instructions
 │   └── woocommerce-spec.md     # E-commerce store and payment gateway blueprint
 ├── vercel.json                 # Vercel deployment routing & security headers
 ├── .gitignore                  # Protection against secret leaks (.env, logs, node_modules)

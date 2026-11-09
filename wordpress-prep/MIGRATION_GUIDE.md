@@ -1,5 +1,5 @@
 # PAK IGNITERS: WordPress & WooCommerce Migration Guide
-**Prepared for:** Warda (WordPress & WooCommerce Development Lead)  
+**Prepared for:** Wardah (WordPress & WooCommerce Development Lead)  
 **Author:** Technical Architecture Team / Ismail Bhatti  
 
 ---
@@ -52,9 +52,9 @@ WordPress has built-in RTL support. When an Urdu locale (`ur`) is active, WordPr
 
 ---
 
-## 5. Collaboration Notice for Warda
+## 5. Collaboration Notice for Wardah
 
-- Work on your dedicated branch: `dev-warda`.
+- Work on your dedicated branch: `dev-wardah`.
 - Do not commit entire WordPress core files (e.g. `wp-admin`, `wp-includes`) into GitHub.
 - Keep your WordPress theme and plugin code cleanly isolated in `wp-content/themes/pak-igniters-theme/`.
 - Test all pull requests before merging into `main`.

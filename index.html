@@ -20,48 +20,63 @@
        Sticky Site Header
        ======================================================================== -->
   <header class="site-header" id="siteHeader">
-    <div class="container nav-container">
-      
-      <!-- Brand Logo -->
-      <a href="#home" class="brand-wrapper" aria-label="PAK IGNITERS Home">
-        <div class="brand-flame-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.17 2.84-7.67 6.69-8.69-.17.65-.26 1.34-.26 2.05 0 3.31 2.69 6 6 6 .71 0 1.4-.09 2.05-.26-1.02 3.85-4.52 6.69-8.69 6.69zm1.42-20.91c-.39-.12-.8-.12-1.19 0-.41.13-.75.4-1 .76-1.15 1.7-1.8 3.73-1.8 5.82 0 .54.05 1.07.14 1.58C10.74 8.78 12.06 7.6 13.7 7.05c1.65-.55 3.44-.35 4.93.55-1.05-1.92-2.58-3.48-4.47-4.51-.23-.13-.48-.22-.74-.27z"/>
-          </svg>
-        </div>
-        <div class="brand-text-group">
-          <span class="brand-title">PAK <span>IGNITERS</span></span>
-          <span class="brand-tagline-mini" data-i18n="nav.taglineMini">Unlock Your Potential</span>
-        </div>
-      </a>
-
-      <!-- Desktop Navigation Menu -->
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#divisions" class="nav-link" data-i18n="nav.divisions">Divisions</a></li>
-        <li><a href="#team" class="nav-link" data-i18n="nav.team">Team Roles</a></li>
-        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Get in Touch</a></li>
-      </ul>
-
-      <!-- Action Items: Language Switcher & Primary CTA -->
-      <div class="nav-actions">
-        <!-- English | Urdu Switcher -->
-        <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language / زبان تبدیل کریں" aria-label="Toggle Language">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
-          <span class="lang-label" data-i18n="nav.langSwitch">اردو</span>
-        </button>
-
-        <a href="#divisions" class="btn btn-primary" data-i18n="nav.cta">Explore Divisions</a>
-
-        <!-- Mobile Drawer Toggle -->
-        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
-          <svg viewBox="0 0 24 24">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-          </svg>
-        </button>
+    <!-- Top Announcement Tagline Bar (Highest bar on screen) -->
+    <div class="top-announcement-bar">
+      <div class="container top-announcement-content">
+        <span class="announcement-pill">
+          <span class="pill-dot"></span>
+          <span data-i18n="nav.taglineMini">Unlock Your Potential</span>
+        </span>
+        <span class="announcement-sep">•</span>
+        <span class="announcement-sub" data-i18n="hero.supporting">Learn. Create. Earn. Lead.</span>
       </div>
+    </div>
 
+    <div class="nav-bar-wrapper">
+      <div class="container nav-container">
+        
+        <!-- Brand Logo (Single-line, perfectly centered, no text overlapping) -->
+        <a href="#home" class="brand-wrapper" aria-label="PAK IGNITERS Home">
+          <div class="brand-flame-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.17 2.84-7.67 6.69-8.69-.17.65-.26 1.34-.26 2.05 0 3.31 2.69 6 6 6 .71 0 1.4-.09 2.05-.26-1.02 3.85-4.52 6.69-8.69 6.69zm1.42-20.91c-.39-.12-.8-.12-1.19 0-.41.13-.75.4-1 .76-1.15 1.7-1.8 3.73-1.8 5.82 0 .54.05 1.07.14 1.58C10.74 8.78 12.06 7.6 13.7 7.05c1.65-.55 3.44-.35 4.93.55-1.05-1.92-2.58-3.48-4.47-4.51-.23-.13-.48-.22-.74-.27z"/>
+            </svg>
+          </div>
+          <span class="brand-title">PAK <span>IGNITERS</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#divisions" class="nav-link" data-i18n="nav.divisions">Divisions</a></li>
+          <li><a href="#team" class="nav-link" data-i18n="nav.team">Team Roles</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Get in Touch</a></li>
+          <li class="mobile-drawer-cta">
+            <a href="#divisions" class="btn btn-primary" data-i18n="nav.cta">Explore Divisions</a>
+          </li>
+        </ul>
+
+        <!-- Action Items: Language Switcher & Primary CTA -->
+        <div class="nav-actions">
+          <!-- English | Urdu Switcher -->
+          <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language / زبان تبدیل کریں" aria-label="Toggle Language">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span class="lang-label" data-i18n="nav.langSwitch">اردو</span>
+          </button>
+
+          <!-- Desktop Only CTA to prevent mobile clipping -->
+          <a href="#divisions" class="btn btn-primary header-desktop-cta" data-i18n="nav.cta">Explore Divisions</a>
+
+          <!-- Mobile Drawer Toggle -->
+          <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
     </div>
   </header>
 
@@ -337,7 +352,7 @@
 
       <div class="footer-bottom">
         <span data-i18n="footer.copyright">© 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential.</span>
-        <span>Lead: Ismail Bhatti • WordPress Lead: Warda • Strategy Lead: Farwa</span>
+        <span>Lead: Ismail Bhatti • WordPress Lead: Wardah • Strategy Lead: Farwa</span>
       </div>
     </div>
   </footer>

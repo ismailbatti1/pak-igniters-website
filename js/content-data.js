@@ -64,7 +64,7 @@ const PAK_IGNITERS_CONTENT = {
             "Product Catalog & Inventory Automation",
             "Conversion Rate Optimization (CRO)"
           ],
-          leadRole: "Warda (WordPress & WooCommerce Lead)"
+          leadRole: "Wardah (WordPress & WooCommerce Lead)"
         },
         {
           id: "webstudio",
@@ -78,7 +78,7 @@ const PAK_IGNITERS_CONTENT = {
             "Performance Tuning & Accessibility (WCAG)",
             "Future-Proof WordPress Custom Theme Migration"
           ],
-          leadRole: "Ismail (UI/UX & AI) & Warda (WordPress)"
+          leadRole: "Ismail (UI/UX & AI) & Wardah (WordPress)"
         },
         {
           id: "academy",
@@ -135,10 +135,10 @@ const PAK_IGNITERS_CONTENT = {
           badge: "Branch: dev-ismail"
         },
         {
-          name: "Warda",
+          name: "Wardah",
           title: "WordPress & WooCommerce Development Lead",
           scope: "WordPress theme planning, WooCommerce store integration, product inventory schemas, and CMS migration.",
-          badge: "Branch: dev-warda"
+          badge: "Branch: dev-wardah"
         },
         {
           name: "Farwa",
@@ -322,7 +322,7 @@ const PAK_IGNITERS_CONTENT = {
           name: "وردہ",
           title: "ورڈپریس اور وو کامرس ڈویلپمنٹ لیڈ",
           scope: "ورڈپریس تھیم کی منصوبہ بندی، وو کامرس اسٹور، پروڈکٹ کیٹلاگ اسکیما اور سی ایم ایس منتقلی۔",
-          badge: "برانچ: dev-warda"
+          badge: "برانچ: dev-wardah"
         },
         {
           name: "فروہ",

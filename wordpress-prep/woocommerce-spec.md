@@ -1,5 +1,5 @@
 # PAK IGNITERS: WooCommerce Store Specification
-**Lead:** Warda (WordPress & WooCommerce Lead)  
+**Lead:** Wardah (WordPress & WooCommerce Lead)  
 
 ---
 
