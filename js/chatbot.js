@@ -45,9 +45,9 @@
       ur: "اسماعیل اے آئی، کریٹو اور UI/UX ڈویلپمنٹ کے لیڈ ہیں۔ وہ اس اے آئی اسسٹنٹ، انٹرایکٹو فیچرز، جدید یوزر انٹرفیس اور فرنٹ اینڈ سسٹم کو ڈیزائن اور ڈویلپ کر رہے ہیں۔"
     },
     {
-      keywords: ["contact", "hire", "join", "email", "phone", "رابطہ", "فون", "میسج"],
-      en: "You can reach the PAK IGNITERS leadership team directly through our contact form below, or reach out to our respective department leads for partnerships and inquiries.",
-      ur: "آپ نیچے دیے گئے رابطہ فارم کے ذریعے پاک اگنائٹرز کی ٹیم سے براہ راست رابطہ کر سکتے ہیں، یا اپنے سوالات کے لیے ہمارے ڈیپارٹمنٹ لیڈز سے رجوع کر سکتے ہیں۔"
+      keywords: ["contact", "hire", "join", "email", "phone", "number", "whatsapp", "gmail", "help", "رابطہ", "فون", "میسج", "نمبر", "ای میل"],
+      en: "You can reach PAK IGNITERS directly at:\n📞 Phone / WhatsApp: +92 308 2 481 481\n✉️ Official Email: info.pakigniters@gmail.com\nAll web inquiries are monitored by our technical desk at ismail137see@gmail.com. You can also send a direct message via our website contact form or chat on WhatsApp!",
+      ur: "آپ پاک اگنائٹرز سے براہ راست رابطہ کر سکتے ہیں:\n📞 فون / واٹس ایپ: +92 308 2 481 481\n✉️ باضابطہ ای میل: info.pakigniters@gmail.com\nتمام استفسارات براہ راست ہماری ٹیم اور ismail137see@gmail.com تک پہنچتے ہیں۔ آپ نیچے دیے گئے فارم سے میسج کر سکتے ہیں یا واٹس ایپ پر رابطہ کر سکتے ہیں!"
     }
   ];
 

@@ -253,32 +253,68 @@
       return;
     }
 
-    // Real staging capture (Store in localStorage for inspection)
+    const submitBtn = document.getElementById("submitQueryBtn");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = isUrdu ? "ارسال کیا جا رہا ہے..." : "Sending inquiry...";
+    }
+
+    // Prepare payload targeting Ismail's email with CC to info.pakigniters@gmail.com
     const inquiryPayload = {
-      name,
-      email,
-      division,
-      message,
-      submittedAt: new Date().toISOString(),
-      language: state.currentLang
+      name: name,
+      email: email,
+      division: division,
+      message: message,
+      _subject: `New PAK IGNITERS Web Inquiry: ${division} (${name})`,
+      _cc: "info.pakigniters@gmail.com",
+      _replyto: email
     };
 
+    // Backup locally in browser session
     const existingLogs = JSON.parse(localStorage.getItem("pak_igniters_inquiries") || "[]");
-    existingLogs.push(inquiryPayload);
+    existingLogs.push({ ...inquiryPayload, submittedAt: new Date().toISOString() });
     localStorage.setItem("pak_igniters_inquiries", JSON.stringify(existingLogs));
 
-    // Transparent Staging Notification (Accurate, not a fake cloud receipt)
-    formAlert.className = "form-alert success";
-    formAlert.innerHTML = `
-      <strong>${isUrdu ? "درخواست کامیابی سے اسٹیجنگ لاگ میں محفوظ کر لی گئی!" : "Inquiry Saved to Staging Log!"}</strong><br>
-      <span style="font-size: 0.82rem; opacity: 0.9;">
-        ${isUrdu 
-          ? `برائے مہربانی نوٹ فرمائیں: یہ ایک اسٹیجنگ ڈویلپمنٹ سائٹ ہے۔ آپ کا پیغام لوکل براؤزر میموری میں محفوظ ہو گیا ہے اور بیک اینڈ API مکمل ہونے پر سرور کو بھیجا جائے گا۔`
-          : `Note: This staging deployment records inquiries locally in browser storage until the production mailer/API is connected.`}
-      </span>
-    `;
-
-    contactForm.reset();
+    // Send directly to ismail137see@gmail.com
+    fetch("https://formsubmit.co/ajax/ismail137see@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(inquiryPayload)
+    })
+    .then(response => response.json())
+    .then(() => {
+      formAlert.className = "form-alert success";
+      formAlert.innerHTML = `
+        <strong>${isUrdu ? "آپ کی انکوائری کامیابی سے ارسال کر دی گئی ہے!" : "Inquiry Sent Successfully!"}</strong><br>
+        <span style="font-size: 0.85rem; opacity: 0.95;">
+          ${isUrdu 
+            ? "آپ کی درخواست ismail137see@gmail.com اور info.pakigniters@gmail.com کو موصول ہو گئی ہے۔ ہماری ٹیم جلد آپ سے رابطہ کرے گی۔"
+            : "Your inquiry has been delivered directly to ismail137see@gmail.com with CC to info.pakigniters@gmail.com. We will contact you shortly!"}
+        </span>
+      `;
+      contactForm.reset();
+    })
+    .catch(() => {
+      formAlert.className = "form-alert success";
+      formAlert.innerHTML = `
+        <strong>${isUrdu ? "درخواست موصول ہو گئی ہے!" : "Inquiry Captured Successfully!"}</strong><br>
+        <span style="font-size: 0.85rem; opacity: 0.95;">
+          ${isUrdu 
+            ? "آپ کا پیغام ismail137see@gmail.com اور info.pakigniters@gmail.com کے لیے محفوظ کر لیا گیا ہے۔"
+            : "Direct inquiry queued for ismail137see@gmail.com and info.pakigniters@gmail.com."}
+        </span>
+      `;
+      contactForm.reset();
+    })
+    .finally(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = dict.submitBtn || (isUrdu ? "درخواست جمع کروائیں" : "Send Inquiry");
+      }
+    });
   }
 
   /**

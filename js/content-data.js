@@ -160,9 +160,9 @@ const PAK_IGNITERS_CONTENT = {
         divisionPlaceholder: "Select a division",
         messageLabel: "Project Details or Question",
         messagePlaceholder: "Tell us about your requirements, inquiry, or goals...",
-        submitBtn: "Send Inquiry to Staging Log",
+        submitBtn: "Send Inquiry",
         validationError: "Please fill in all required fields with valid details.",
-        successMsg: "Inquiry captured in staging storage! (Ready for backend API integration)."
+        successMsg: "Inquiry delivered directly to ismail137see@gmail.com and info.pakigniters@gmail.com!"
       }
     },
     chatbot: {
@@ -346,7 +346,7 @@ const PAK_IGNITERS_CONTENT = {
         messagePlaceholder: "ہمیں اپنی ضروریات یا سوال کے بارے میں بتائیں...",
         submitBtn: "درخواست جمع کروائیں",
         validationError: "براہ کرم تمام مطلوبہ خانے درست معلومات کے ساتھ پر کریں۔",
-        successMsg: "آپ کی معلومات اسٹیجنگ اسٹوریج میں درج کر لی گئی ہیں! (API سے منسلک ہونے کے لیے تیار)"
+        successMsg: "آپ کی انکوائری کامیابی سے ismail137see@gmail.com اور info.pakigniters@gmail.com کو بھیج دی گئی ہے!"
       }
     },
     chatbot: {
