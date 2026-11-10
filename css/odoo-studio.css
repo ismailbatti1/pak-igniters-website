@@ -1,0 +1,522 @@
+/* ==========================================================================
+   PAK IGNITERS - ODOO-STYLE COMPREHENSIVE WEBSITE BUILDER STUDIO
+   Inspired by Odoo 17/18 Website Builder & Elementor
+   Features: Right Sidebar, Block Snippets Library, Page Manager,
+   Menu Manager, Section Handles, and Live Inspector
+   ========================================================================== */
+
+:root {
+  --odoo-sidebar-width: 320px;
+  --odoo-header-height: 52px;
+  --odoo-primary: #714B67; /* Odoo signature purple */
+  --odoo-primary-hover: #5A3C52;
+  --odoo-accent: #00704A; /* Pak Igniters Emerald */
+  --odoo-accent-light: #10B981;
+  --odoo-dark: #1E293B;
+  --odoo-darker: #0F172A;
+  --odoo-border: rgba(255, 255, 255, 0.12);
+  --odoo-text: #F8FAFC;
+  --odoo-text-muted: #94A3B8;
+}
+
+body.odoo-studio-active {
+  padding-top: var(--odoo-header-height) !important;
+  margin-right: var(--odoo-sidebar-width) !important;
+  transition: margin-right 0.25s ease;
+  overflow-x: hidden;
+}
+
+body.odoo-sidebar-collapsed {
+  margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   1. Odoo Top Bar
+   ========================================================================== */
+.odoo-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--odoo-header-height);
+  background: var(--odoo-darker);
+  border-bottom: 2px solid var(--odoo-accent);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--odoo-text);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.odoo-top-left, .odoo-top-center, .odoo-top-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.odoo-logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--odoo-primary), var(--odoo-accent));
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.odoo-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.odoo-top-btn.btn-save {
+  background: var(--odoo-accent);
+  color: #FFFFFF;
+  border-color: var(--odoo-accent-light);
+}
+
+.odoo-top-btn.btn-save:hover {
+  background: var(--odoo-accent-light);
+  transform: translateY(-1px);
+}
+
+.odoo-top-btn.btn-deploy {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #000;
+  font-weight: 800;
+  border: 1px solid #FCD34D;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+}
+
+.odoo-top-btn.btn-deploy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.6);
+}
+
+.odoo-top-btn.btn-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--odoo-text);
+  border-color: var(--odoo-border);
+}
+
+.odoo-top-btn.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+}
+
+/* Device preview switch */
+.odoo-device-switch {
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--odoo-border);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.odoo-device-btn {
+  background: transparent;
+  border: none;
+  color: var(--odoo-text-muted);
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.odoo-device-btn.active {
+  background: var(--odoo-accent);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. Odoo Right Sidebar (Blocks, Inspector, Pages, Menu)
+   ========================================================================== */
+.odoo-sidebar {
+  position: fixed;
+  top: var(--odoo-header-height);
+  right: 0;
+  bottom: 0;
+  width: var(--odoo-sidebar-width);
+  background: var(--odoo-darker);
+  border-left: 1px solid var(--odoo-border);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.6);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: transform 0.25s ease;
+}
+
+.odoo-sidebar.collapsed {
+  transform: translateX(100%);
+}
+
+/* Sidebar Tab Nav */
+.odoo-tab-nav {
+  display: flex;
+  background: var(--odoo-dark);
+  border-bottom: 1px solid var(--odoo-border);
+}
+
+.odoo-tab-btn {
+  flex: 1;
+  padding: 0.75rem 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--odoo-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.odoo-tab-btn:hover {
+  color: #FFFFFF;
+}
+
+.odoo-tab-btn.active {
+  color: var(--odoo-accent-light);
+  border-bottom-color: var(--odoo-accent-light);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+/* Sidebar Body Content */
+.odoo-tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1rem;
+}
+
+.odoo-tab-pane {
+  display: none;
+}
+
+.odoo-tab-pane.active {
+  display: block;
+}
+
+/* Block Snippets Grid (Odoo Style) */
+.odoo-blocks-category-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--odoo-text-muted);
+  letter-spacing: 0.08em;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.odoo-blocks-category-title:first-child {
+  margin-top: 0;
+}
+
+.odoo-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.odoo-block-card {
+  background: var(--odoo-dark);
+  border: 1px solid var(--odoo-border);
+  border-radius: 8px;
+  padding: 0.85rem 0.65rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.odoo-block-card:hover {
+  background: rgba(0, 112, 74, 0.25);
+  border-color: var(--odoo-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.odoo-block-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.odoo-block-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--odoo-text);
+  display: block;
+}
+
+.odoo-block-desc {
+  font-size: 0.65rem;
+  color: var(--odoo-text-muted);
+  margin-top: 0.2rem;
+  display: block;
+}
+
+/* Pages Manager List */
+.odoo-pages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.odoo-page-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--odoo-dark);
+  border: 1px solid var(--odoo-border);
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--odoo-text);
+}
+
+.odoo-page-item.active {
+  border-color: var(--odoo-accent-light);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+/* ==========================================================================
+   3. In-Page Section Hover Controls & Add Block Dividers
+   ========================================================================== */
+.odoo-section-wrapper {
+  position: relative !important;
+  transition: outline 0.15s ease;
+}
+
+.odoo-section-wrapper:hover {
+  outline: 2px dashed rgba(16, 185, 129, 0.6) !important;
+  outline-offset: -2px;
+}
+
+.odoo-section-actions {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: var(--odoo-darker);
+  border: 1px solid var(--odoo-border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.odoo-section-wrapper:hover > .odoo-section-actions {
+  opacity: 1;
+}
+
+.odoo-action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--odoo-border);
+  color: #FFFFFF;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background 0.15s ease;
+}
+
+.odoo-action-btn:hover {
+  background: var(--odoo-accent);
+  border-color: var(--odoo-accent-light);
+}
+
+.odoo-action-btn.btn-delete:hover {
+  background: #EF4444;
+  border-color: #F87171;
+}
+
+/* Add Block Divider (Hover between sections) */
+.odoo-add-divider {
+  height: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -12px 0;
+  z-index: 500;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.odoo-add-divider:hover {
+  opacity: 1;
+}
+
+.odoo-add-divider::before {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: var(--odoo-accent-light);
+}
+
+.odoo-add-divider-btn {
+  position: relative;
+  background: var(--odoo-accent);
+  color: #FFFFFF;
+  border: 1px solid var(--odoo-accent-light);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   4. Direct Editable Elements Outlines
+   ========================================================================== */
+.odoo-editable {
+  transition: outline 0.15s ease, background 0.15s ease;
+  position: relative;
+}
+
+.odoo-editable:hover {
+  outline: 2px dashed #0A9B67 !important;
+  outline-offset: 3px !important;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.odoo-editable:hover::after {
+  content: "✎ Edit";
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background: #00704A;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.odoo-editable.odoo-active-editing {
+  outline: 2px solid #38BDF8 !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  cursor: text;
+}
+
+/* ==========================================================================
+   5. Modal Dialogs (Add Page, Menu Editor, Deploy Toast)
+   ========================================================================== */
+.odoo-studio-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10000000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.odoo-studio-modal.open {
+  display: flex;
+}
+
+.odoo-modal-card {
+  background: var(--odoo-darker);
+  border: 1px solid var(--odoo-border);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  padding: 1.75rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
+  font-family: 'Inter', system-ui, sans-serif;
+  animation: odooPopIn 0.2s ease;
+}
+
+.odoo-modal-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.odoo-modal-card p {
+  font-size: 0.84rem;
+  color: var(--odoo-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.odoo-modal-card .form-group {
+  margin-bottom: 1rem;
+}
+
+.odoo-modal-card label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  margin-bottom: 0.35rem;
+}
+
+.odoo-modal-card input, .odoo-modal-card select, .odoo-modal-card textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: #0B1120;
+  border: 1px solid var(--odoo-border);
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  box-sizing: border-box;
+}
+
+.odoo-modal-card input:focus, .odoo-modal-card select:focus, .odoo-modal-card textarea:focus {
+  outline: none;
+  border-color: var(--odoo-accent-light);
+}
+
+.odoo-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--odoo-border);
+}
+
+@keyframes odooPopIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
