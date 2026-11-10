@@ -16,90 +16,105 @@
   let langToggleBtn, mobileMenuBtn, navMenu, siteHeader, divisionsContainer, divisionTabsContainer, contactForm, formAlert;
 
   /**
-   * Sync CMS content from LocalStorage (published or draft preview)
+   * Helper to set deeply nested property in an object
+   */
+  function setNestedProp(obj, path, value) {
+    if (!obj || !path) return;
+    const parts = path.split(".");
+    let curr = obj;
+    for (let i = 0; i < parts.length - 1; i++) {
+      if (!curr[parts[i]]) curr[parts[i]] = {};
+      curr = curr[parts[i]];
+    }
+    curr[parts[parts.length - 1]] = value;
+  }
+
+  /**
+   * Universal Visual Overrides Engine:
+   * Applies all edited texts, images, and buttons to the live website instantly!
    */
   function syncCmsContent() {
     try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const isDraftPreview = urlParams.get("preview") === "draft";
-      const storedKey = isDraftPreview ? "pak_igniters_draft_content" : "pak_igniters_published_content";
-      const storedRaw = localStorage.getItem(storedKey);
+      const raw = localStorage.getItem("pak_igniters_published_overrides") || 
+                  localStorage.getItem("pak_igniters_draft_overrides") || 
+                  localStorage.getItem("pak_igniters_published_content");
+      if (!raw) return;
 
-      if (storedRaw && window.PAK_IGNITERS_CONTENT) {
-        const cmsData = JSON.parse(storedRaw);
+      const data = JSON.parse(raw);
 
-        // Merge English Content
-        if (window.PAK_IGNITERS_CONTENT.en) {
-          const en = window.PAK_IGNITERS_CONTENT.en;
-          if (cmsData.announcement && cmsData.announcement.text) en.announcement.text = cmsData.announcement.text;
-          if (cmsData.hero) {
-            if (cmsData.hero.title) en.hero.title = cmsData.hero.title;
-            if (cmsData.hero.badge) en.hero.badge = cmsData.hero.badge;
-            if (cmsData.hero.description) en.hero.description = cmsData.hero.description;
-            if (cmsData.hero.primaryBtnText) en.hero.primaryBtn = cmsData.hero.primaryBtnText;
-            if (cmsData.hero.secondaryBtnText) en.hero.secondaryBtn = cmsData.hero.secondaryBtnText;
-          }
-          if (cmsData.about) {
-            if (cmsData.about.title) en.about.title = cmsData.about.title;
-            if (cmsData.about.story) en.about.story = cmsData.about.story;
-          }
-          if (cmsData.contact) {
-            if (cmsData.contact.phone) en.contact.phone = cmsData.contact.phone;
-            if (cmsData.contact.primaryQueryEmail) en.contact.primaryQueryEmail = cmsData.contact.primaryQueryEmail;
-            if (cmsData.contact.publicEmail) en.contact.publicEmail = cmsData.contact.publicEmail;
-          }
-          if (Array.isArray(cmsData.divisions) && en.divisions && en.divisions.items) {
-            cmsData.divisions.forEach((d, idx) => {
-              if (en.divisions.items[idx]) {
-                if (d.title) en.divisions.items[idx].name = d.title;
-                if (d.description) en.divisions.items[idx].description = d.description;
-                if (d.features) en.divisions.items[idx].features = d.features;
-              }
-            });
-          }
-        }
+      // 1. Apply Text Overrides into in-memory dictionary
+      if (data.texts && window.PAK_IGNITERS_CONTENT) {
+        Object.keys(data.texts).forEach(key => {
+          const val = data.texts[key];
+          if (window.PAK_IGNITERS_CONTENT.en) setNestedProp(window.PAK_IGNITERS_CONTENT.en, key, val);
+          if (window.PAK_IGNITERS_CONTENT.ur) setNestedProp(window.PAK_IGNITERS_CONTENT.ur, key, val);
 
-        // Merge Urdu Content
-        if (window.PAK_IGNITERS_CONTENT.ur) {
-          const ur = window.PAK_IGNITERS_CONTENT.ur;
-          if (cmsData.announcement && (cmsData.announcement.text_ur || cmsData.announcement.text)) {
-            ur.announcement.text = cmsData.announcement.text_ur || cmsData.announcement.text;
-          }
-          if (cmsData.hero) {
-            if (cmsData.hero.title_ur) ur.hero.title = cmsData.hero.title_ur;
-            if (cmsData.hero.badge_ur) ur.hero.badge = cmsData.hero.badge_ur;
-            if (cmsData.hero.description_ur) ur.hero.description = cmsData.hero.description_ur;
-          }
-          if (cmsData.about) {
-            if (cmsData.about.title_ur) ur.about.title = cmsData.about.title_ur;
-            if (cmsData.about.story_ur) ur.about.story = cmsData.about.story_ur;
-          }
-          if (cmsData.contact) {
-            if (cmsData.contact.phone) ur.contact.phone = cmsData.contact.phone;
-            if (cmsData.contact.primaryQueryEmail) ur.contact.primaryQueryEmail = cmsData.contact.primaryQueryEmail;
-            if (cmsData.contact.publicEmail) ur.contact.publicEmail = cmsData.contact.publicEmail;
-          }
-          if (Array.isArray(cmsData.divisions) && ur.divisions && ur.divisions.items) {
-            cmsData.divisions.forEach((d, idx) => {
-              if (ur.divisions.items[idx]) {
-                if (d.title_ur || d.title) ur.divisions.items[idx].name = d.title_ur || d.title;
-                if (d.description_ur || d.description) ur.divisions.items[idx].description = d.description_ur || d.description;
-              }
-            });
-          }
-        }
+          // Direct DOM elements matching [data-i18n]
+          document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+              el.setAttribute("placeholder", val);
+            } else {
+              el.innerHTML = val;
+            }
+          });
+        });
       }
 
-      // Add preview banner if in draft preview mode
-      if (isDraftPreview && !document.getElementById("draftPreviewBanner")) {
-        const banner = document.createElement("div");
-        banner.id = "draftPreviewBanner";
-        banner.style.cssText = "background: #F59E0B; color: #000; font-size: 0.8rem; font-weight: 700; text-align: center; padding: 0.45rem 1rem; position: sticky; top: 0; z-index: 99999; display: flex; justify-content: center; align-items: center; gap: 1rem;";
-        banner.innerHTML = '<span>&#9888; PREVIEW MODE: Viewing Unpublished CMS Draft</span><a href="admin/index.html" style="color: #000; text-decoration: underline; font-weight: 800;">&larr; Back to Admin Dashboard</a>';
-        document.body.prepend(banner);
+      // Also support legacy elements array if present
+      if (Array.isArray(data.elements)) {
+        data.elements.forEach(item => {
+          if (item.key) {
+            document.querySelectorAll(`[data-i18n="${item.key}"]`).forEach(el => {
+              el.innerHTML = item.html || item.text;
+              if (item.href) el.setAttribute("href", item.href);
+            });
+            if (window.PAK_IGNITERS_CONTENT) {
+              if (window.PAK_IGNITERS_CONTENT.en) setNestedProp(window.PAK_IGNITERS_CONTENT.en, item.key, item.text || item.html);
+              if (window.PAK_IGNITERS_CONTENT.ur) setNestedProp(window.PAK_IGNITERS_CONTENT.ur, item.key, item.text || item.html);
+            }
+          }
+        });
+      }
+
+      // 2. Apply Image Overrides
+      if (data.images) {
+        Object.keys(data.images).forEach(sel => {
+          const imgData = data.images[sel];
+          const el = document.querySelector(sel) || document.getElementById(sel);
+          if (el) {
+            if (el.tagName === "IMG") {
+              el.src = imgData.src;
+              if (imgData.alt) el.alt = imgData.alt;
+            } else {
+              let existingImg = el.querySelector("img");
+              if (!existingImg) {
+                el.innerHTML = `<img src="${imgData.src}" alt="${imgData.alt || 'Asset'}" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;">`;
+              } else {
+                existingImg.src = imgData.src;
+                if (imgData.alt) existingImg.alt = imgData.alt;
+              }
+            }
+          }
+        });
+      }
+
+      // 3. Apply Button Overrides
+      if (data.buttons) {
+        Object.keys(data.buttons).forEach(btnKey => {
+          const bData = data.buttons[btnKey];
+          const btn = document.querySelector(btnKey) || document.querySelector(`[data-i18n="${btnKey}"]`);
+          if (btn) {
+            if (bData.text) btn.textContent = bData.text;
+            if (bData.href && btn.tagName === "A") btn.setAttribute("href", bData.href);
+            if (bData.style) {
+              btn.classList.remove("btn-primary", "btn-secondary");
+              btn.classList.add(bData.style);
+            }
+          }
+        });
       }
     } catch (e) {
-      console.warn("CMS content sync bypassed:", e);
+      console.warn("Visual overrides sync error:", e);
     }
   }
 
@@ -209,7 +224,7 @@
       if (labelSpan) labelSpan.textContent = dict.nav.langSwitch;
     }
 
-    // Update all elements with data-i18n
+    // Update all elements with data-i18n (preserving user overrides)
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const keyPath = el.getAttribute("data-i18n");
       const val = resolveKeyPath(dict, keyPath);
@@ -217,7 +232,7 @@
         if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
           el.setAttribute("placeholder", val);
         } else {
-          el.textContent = val;
+          el.innerHTML = val;
         }
       }
     });
@@ -227,6 +242,9 @@
 
     // Render Team Collaboration Members
     renderTeamMembers();
+
+    // Re-apply all visual overrides on top of newly rendered dynamic sections
+    syncCmsContent();
   }
 
   /**
