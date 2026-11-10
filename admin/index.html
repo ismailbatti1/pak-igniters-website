@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAK IGNITERS | Executive Management Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300704A'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- ======================================================================
+         SIDEBAR NAVIGATION
+         ====================================================================== -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-brand-box">
+        <div class="sidebar-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="sidebar-brand-text">
+          <h3>PAK <span>IGNITERS</span></h3>
+          <span class="sidebar-badge">CMS Executive v2.0</span>
+        </div>
+      </div>
+
+      <!-- Current User Brief Card -->
+      <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--admin-border); display: flex; align-items: center; gap: 0.75rem;">
+        <div id="sidebarUserAvatar" style="width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--color-primary); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.95rem;">
+          U
+        </div>
+        <div style="flex: 1; overflow: hidden;">
+          <div id="sidebarUserName" style="font-weight: 700; font-size: 0.88rem; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">User</div>
+          <span id="sidebarUserRole" class="role-badge super_admin" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">Admin</span>
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="sidebar-menu">
+        <li class="menu-section-label">General</li>
+        <li>
+          <a class="sidebar-nav-item active" data-tab="overview">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Overview</span>
+          </a>
+        </li>
+
+        <li class="menu-section-label">Content Management</li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="editor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Visual Editor</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="divisions">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>6 Divisions</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="pages">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Pages</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="media">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Media Library</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="blogs">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Blog &amp; Articles</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="seo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>SEO &amp; Meta</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-item" data-tab="nav">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span>Navigation &amp; Footer</span>
+          </a>
+        </li>
+
+        <li class="menu-section-label" data-rbac-roles="super_admin,developer">Administration</li>
+        <li data-rbac-roles="super_admin">
+          <a class="sidebar-nav-item" data-tab="team">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Team &amp; Roles</span>
+          </a>
+        </li>
+        <li data-rbac-roles="super_admin,developer">
+          <a class="sidebar-nav-item" data-tab="settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>System &amp; Chatbot</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Sidebar Footer (Quick Links & Logout) -->
+      <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--admin-border); display: flex; align-items: center; justify-content: space-between;">
+        <a href="../index.html" target="_blank" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Live Site</span>
+        </a>
+        <button id="logoutBtn" style="background: none; border: none; color: #EF4444; font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    <main class="admin-main">
+      <!-- Top Action Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="menu-toggle-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h2 id="pageTitle" style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">Overview Dashboard</h2>
+            <div style="font-size: 0.75rem; color: var(--text-dim);" id="pageSubtitle">Real-time status of PAK IGNITERS portal</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="header-status-pill" id="syncStatusBadge">
+            <span class="status-indicator"></span>
+            <span id="syncStatusText">Synced with Live</span>
+          </div>
+
+          <button type="button" class="admin-btn admin-btn-secondary" id="openPreviewBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Live Preview</span>
+          </button>
+
+          <button type="button" class="admin-btn admin-btn-primary" id="publishLiveBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Publish Changes</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-content-body">
+
+        <!-- ==================================================================
+             TAB: OVERVIEW
+             ================================================================== -->
+        <section class="tab-panel active" id="tab-overview">
+          <div class="overview-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Active Divisions</span>
+                <span class="metric-badge green">100% Operational</span>
+              </div>
+              <div class="metric-value" id="metricDivisionsCount">6</div>
+              <div class="metric-sub">BPO, IT Services, E-Comm, Edu, Media, Incubation</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Language Engines</span>
+                <span class="metric-badge blue">Bilingual</span>
+              </div>
+              <div class="metric-value">English &amp; اردو</div>
+              <div class="metric-sub">Automated LTR / RTL bidirectional rendering</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Team Accounts</span>
+                <span class="metric-badge green">3 Active</span>
+              </div>
+              <div class="metric-value">3</div>
+              <div class="metric-sub">Ismail (Admin), Wardah (Dev), Farwa (Content)</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">CMS Status</span>
+                <span class="metric-badge yellow" id="metricCmsBadge">Live Sync</span>
+              </div>
+              <div class="metric-value" style="font-size: 1.25rem; font-weight: 700; color: #34D399;" id="metricLastPublish">Ready</div>
+              <div class="metric-sub" id="metricStorageInfo">Local &amp; Staging synchronizer ready</div>
+            </div>
+          </div>
+
+          <!-- Quick Actions Grid -->
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 2rem 0 1rem 0; color: #FFFFFF;">Quick Management Actions</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+            <div class="admin-card" style="cursor: pointer;" onclick="document.querySelector('[data-tab=editor]').click()">
+              <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-primary-light);">&rarr;</span> Edit Hero &amp; Sections
+              </h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Update hero headlines, taglines, about section, values, and call-to-actions.</p>
+            </div>
+
+            <div class="admin-card" style="cursor: pointer;" onclick="document.querySelector('[data-tab=divisions]').click()">
+              <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-accent-gold);">&rarr;</span> Manage 6 Divisions
+              </h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Modify division descriptions, icons, feature bullets, and bilingual Urdu text.</p>
+            </div>
+
+            <div class="admin-card" style="cursor: pointer;" onclick="document.querySelector('[data-tab=media]').click()">
+              <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-accent-blue);">&rarr;</span> Upload &amp; Replace Images
+              </h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Manage media library, logos, hero banners, and team photographs.</p>
+            </div>
+          </div>
+
+          <!-- Audit Activity Trail -->
+          <div class="admin-card">
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF; display: flex; align-items: center; justify-content: space-between;">
+              <span>System &amp; Editor Activity Trail</span>
+              <button class="admin-btn admin-btn-secondary" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;" id="clearAuditBtn">Clear Log</button>
+            </h3>
+            <div id="auditLogList" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 280px; overflow-y: auto;">
+              <!-- Dynamic entries -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: VISUAL SECTION EDITOR
+             ================================================================== -->
+        <section class="tab-panel" id="tab-editor">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">Visual Section Editor</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Edit homepage sections seamlessly with English and Urdu support.</p>
+            </div>
+            <!-- Language Switcher Tab -->
+            <div style="background: var(--admin-card-elevated); border: 1px solid var(--admin-border); border-radius: var(--radius-sm); padding: 0.25rem; display: flex; gap: 0.25rem;">
+              <button type="button" class="preview-device-btn active" id="btnEditLangEn">English</button>
+              <button type="button" class="preview-device-btn" id="btnEditLangUr">اردو (Urdu)</button>
+            </div>
+          </div>
+
+          <!-- Section 1: Top Announcement Bar -->
+          <div class="admin-card" style="margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+              <span>Top Announcement Bar &amp; Direct Contact</span>
+            </h4>
+            <div class="editor-grid">
+              <div class="form-group">
+                <label class="form-label">Announcement Text</label>
+                <input type="text" class="form-input editor-sync" data-path="announcement.text" placeholder="Official announcement banner">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Helpline Phone (Calls &amp; WhatsApp)</label>
+                <input type="text" class="form-input editor-sync" data-path="contact.phone" placeholder="+92 308 2 481 481">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Inquiry Submission Email</label>
+                <input type="email" class="form-input editor-sync" data-path="contact.primaryQueryEmail" placeholder="ismail137see@gmail.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Official Public Email</label>
+                <input type="email" class="form-input editor-sync" data-path="contact.publicEmail" placeholder="info.pakigniters@gmail.com">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Hero Banner -->
+          <div class="admin-card" style="margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Hero Headline &amp; Call To Action</span>
+            </h4>
+            <div class="editor-grid">
+              <div class="form-group full-width">
+                <label class="form-label">Hero Badge / Subtitle</label>
+                <input type="text" class="form-input editor-sync" data-path="hero.badge" placeholder="Igniting Innovation Across Pakistan">
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">Main Hero Title</label>
+                <input type="text" class="form-input editor-sync" data-path="hero.title" placeholder="Empowering Global Growth Through 6 Strategic Divisions">
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">Hero Description / Tagline</label>
+                <textarea rows="3" class="form-textarea editor-sync" data-path="hero.description" placeholder="Comprehensive enterprise description"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Primary Button Text</label>
+                <input type="text" class="form-input editor-sync" data-path="hero.primaryBtnText" placeholder="Explore Our Divisions">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Secondary Button Text</label>
+                <input type="text" class="form-input editor-sync" data-path="hero.secondaryBtnText" placeholder="Contact Leadership">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: About & Strategic Vision -->
+          <div class="admin-card" style="margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span>About &amp; Strategic Vision</span>
+            </h4>
+            <div class="editor-grid">
+              <div class="form-group full-width">
+                <label class="form-label">About Heading</label>
+                <input type="text" class="form-input editor-sync" data-path="about.title" placeholder="Architects of Modern Commerce and Technology">
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">About Story Paragraph</label>
+                <textarea rows="4" class="form-textarea editor-sync" data-path="about.story" placeholder="Story text"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Contact & Query Routing -->
+          <div class="admin-card">
+            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Contact Page &amp; Query Desk</span>
+            </h4>
+            <div class="editor-grid">
+              <div class="form-group">
+                <label class="form-label">Form Subtitle / Instructions</label>
+                <input type="text" class="form-input editor-sync" data-path="contact.formSubtitle" placeholder="Direct submission to Executive Management">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Response Time Assurance</label>
+                <input type="text" class="form-input editor-sync" data-path="contact.responseTime" placeholder="Direct reply within 2 business hours">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: 6 STRATEGIC DIVISIONS
+             ================================================================== -->
+        <section class="tab-panel" id="tab-divisions">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">6 Strategic Divisions</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Manage titles, descriptions, feature points, and Urdu translations for all six business units.</p>
+            </div>
+          </div>
+
+          <div id="divisionsEditorContainer" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <!-- Rendered dynamically by admin-editor.js -->
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: PAGES MANAGEMENT
+             ================================================================== -->
+        <section class="tab-panel" id="tab-pages">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">Website Pages Directory</h3>
+              <span class="role-badge developer">4 Active Routes</span>
+            </div>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Page Name</th>
+                  <th>Route / URL</th>
+                  <th>Status</th>
+                  <th>Last Modified</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pagesTableBody">
+                <tr>
+                  <td><strong>Home Page</strong></td>
+                  <td><code>/</code> or <code>/index.html</code></td>
+                  <td><span class="metric-badge green">Live</span></td>
+                  <td>Just now</td>
+                  <td>
+                    <button class="admin-btn admin-btn-secondary" style="font-size: 0.78rem; padding: 0.35rem 0.65rem;" onclick="document.querySelector('[data-tab=editor]').click()">Edit Sections</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>6 Divisions Directory</strong></td>
+                  <td><code>/#divisions</code></td>
+                  <td><span class="metric-badge green">Live</span></td>
+                  <td>Just now</td>
+                  <td>
+                    <button class="admin-btn admin-btn-secondary" style="font-size: 0.78rem; padding: 0.35rem 0.65rem;" onclick="document.querySelector('[data-tab=divisions]').click()">Edit Divisions</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>WooCommerce Store (Staging)</strong></td>
+                  <td><code>/wordpress-prep/woocommerce-spec.md</code></td>
+                  <td><span class="metric-badge yellow">Staging Ready</span></td>
+                  <td>Active Spec</td>
+                  <td>
+                    <a href="../wordpress-prep/woocommerce-spec.md" target="_blank" class="admin-btn admin-btn-secondary" style="font-size: 0.78rem; padding: 0.35rem 0.65rem; text-decoration: none;">View Spec</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Admin Executive Dashboard</strong></td>
+                  <td><code>/admin</code> (Private)</td>
+                  <td><span class="metric-badge green">Secured</span></td>
+                  <td>v2.0</td>
+                  <td>
+                    <span style="font-size: 0.78rem; color: #34D399;">Active Session</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: MEDIA & IMAGE LIBRARY
+             ================================================================== -->
+        <section class="tab-panel" id="tab-media">
+          <div class="admin-card" style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Media Library &amp; Image Uploader</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Upload logos, division graphics, and blog banners. Images are compressed and cached directly in the browser CMS.
+            </p>
+
+            <div class="media-dropzone" id="mediaDropzone">
+              <input type="file" id="mediaFileInput" accept="image/*" multiple style="display: none;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary-light); margin-bottom: 0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <div style="font-weight: 700; color: #FFFFFF; font-size: 1rem;">Click to browse or Drag &amp; Drop Images here</div>
+              <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.25rem;">Supported formats: PNG, JPG, WEBP, SVG (Max 5MB)</div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h4 style="font-size: 1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">Stored Media Items</h4>
+            <div class="media-grid" id="mediaLibraryGrid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: BLOGS & ARTICLES
+             ================================================================== -->
+        <section class="tab-panel" id="tab-blogs">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">Blog Articles &amp; Insights</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Publish announcements, tech blogs, and company updates.</p>
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" id="openNewBlogBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add New Article</span>
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Author</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="blogsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: SEO & META TAGS
+             ================================================================== -->
+        <section class="tab-panel" id="tab-seo">
+          <div class="admin-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Search Engine Optimization (SEO)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Configure meta titles, descriptions, and social sharing previews for Google and WhatsApp.
+            </p>
+
+            <div class="editor-grid">
+              <div class="form-group full-width">
+                <label class="form-label">Homepage Meta Title (Google Search)</label>
+                <input type="text" class="form-input editor-sync" data-path="seo.title" placeholder="PAK IGNITERS | Empowering Progress Across 6 Strategic Divisions">
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Meta Description</label>
+                <textarea rows="3" class="form-textarea editor-sync" data-path="seo.description" placeholder="Leading Pakistani enterprise driving global innovation across BPO, IT Development, E-Commerce, and Education."></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Keywords (Comma separated)</label>
+                <input type="text" class="form-input editor-sync" data-path="seo.keywords" placeholder="Pak Igniters, BPO Pakistan, IT Services Lahore, Ecommerce incubation, software development">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Author / Organization Name</label>
+                <input type="text" class="form-input editor-sync" data-path="seo.author" placeholder="PAK IGNITERS Executive Team">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">OpenGraph Social Share Image URL</label>
+                <input type="text" class="form-input editor-sync" data-path="seo.ogImage" placeholder="assets/images/og-share.png">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: NAVIGATION & FOOTER
+             ================================================================== -->
+        <section class="tab-panel" id="tab-nav">
+          <div class="admin-card" style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">Main Header Navigation Menu</h3>
+            <div id="navMenuItemsList" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <!-- Dynamic nav links -->
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">Footer Social &amp; Official Links</h3>
+            <div class="editor-grid">
+              <div class="form-group">
+                <label class="form-label">LinkedIn Company URL</label>
+                <input type="url" class="form-input editor-sync" data-path="social.linkedin" placeholder="https://linkedin.com/company/pakigniters">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Official WhatsApp Helpline</label>
+                <input type="url" class="form-input editor-sync" data-path="social.whatsapp" placeholder="https://wa.me/923082481481">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Facebook Page</label>
+                <input type="url" class="form-input editor-sync" data-path="social.facebook" placeholder="https://facebook.com/pakigniters">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Instagram Handle</label>
+                <input type="url" class="form-input editor-sync" data-path="social.instagram" placeholder="https://instagram.com/pakigniters">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: TEAM & ROLES (SUPER ADMIN ONLY)
+             ================================================================== -->
+        <section class="tab-panel" id="tab-team" data-rbac-roles="super_admin">
+          <div class="admin-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">Team Accounts &amp; Permissions</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Manage member credentials, role scopes, and system access.</p>
+              </div>
+            </div>
+
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Member Name</th>
+                  <th>Login Email</th>
+                  <th>Role Scope</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="teamTableBody">
+                <!-- Dynamically populated from AdminAuth.getUsers() -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             TAB: SYSTEM & CHATBOT SETTINGS (SUPER ADMIN & DEVELOPER)
+             ================================================================== -->
+        <section class="tab-panel" id="tab-settings" data-rbac-roles="super_admin,developer">
+          <div class="admin-card" style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">Query Routing &amp; Email Destination</h3>
+            <div class="editor-grid">
+              <div class="form-group">
+                <label class="form-label">Direct Inbox (All queries routed here)</label>
+                <input type="email" class="form-input" id="cfgInboxEmail" value="ismail137see@gmail.com">
+                <small style="color: var(--text-dim); font-size: 0.75rem;">Ismail's verified inbox for instant FormSubmit notifications</small>
+              </div>
+              <div class="form-group">
+                <label class="form-label">CC Mail (Official record)</label>
+                <input type="email" class="form-input" id="cfgCcEmail" value="info.pakigniters@gmail.com">
+                <small style="color: var(--text-dim); font-size: 0.75rem;">Company official backup record</small>
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">Helpline Number (Shown on website header &amp; query footer)</label>
+                <input type="text" class="form-input" id="cfgHelplinePhone" value="+92 308 2 481 481">
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card" style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">AI Chatbot Engine Configuration</h3>
+            <div class="editor-grid">
+              <div class="form-group full-width">
+                <label class="form-label">Chatbot Welcome Greeting (English)</label>
+                <input type="text" class="form-input" id="cfgBotGreetingEn" value="Assalam-o-Alaikum! Welcome to PAK IGNITERS. How can I assist you today?">
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">Chatbot Welcome Greeting (Urdu)</label>
+                <input type="text" class="form-input" id="cfgBotGreetingUr" dir="rtl" value="السلام علیکم! پاک اگنائیٹرز میں خوش آمدید۔ ہم آپ کی کیا مدد کر سکتے ہیں؟">
+              </div>
+              <div class="form-group">
+                <label class="form-label">WhatsApp Escalation Link</label>
+                <input type="text" class="form-input" id="cfgBotWhatsApp" value="https://wa.me/923082481481">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Bot Status</label>
+                <select class="form-input" id="cfgBotStatus">
+                  <option value="enabled" selected>Active on Public Website</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+              </div>
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" id="saveSettingsBtn" style="margin-top: 1rem;">Save System Settings</button>
+          </div>
+
+          <!-- Backup & Restore -->
+          <div class="admin-card">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">CMS Backup &amp; Disaster Recovery</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Download a complete JSON snapshot of all published content and draft changes.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button type="button" class="admin-btn admin-btn-secondary" id="exportBackupBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Export Content Backup (.json)</span>
+              </button>
+              <button type="button" class="admin-btn admin-btn-secondary" id="importBackupBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Restore From Backup</span>
+              </button>
+              <input type="file" id="importBackupFile" accept=".json" style="display: none;">
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ======================================================================
+       LIVE SPLIT-SCREEN / DEVICE PREVIEW MODAL
+       ====================================================================== -->
+  <div class="preview-modal" id="previewModal">
+    <div class="preview-modal-header">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <h4 style="font-size: 1rem; font-weight: 700; color: #FFFFFF;">Live Website Preview (Staging Draft)</h4>
+        <div class="preview-device-switch">
+          <button type="button" class="preview-device-btn active" id="btnDeviceDesktop">Desktop View</button>
+          <button type="button" class="preview-device-btn" id="btnDeviceMobile">Mobile (390px)</button>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="../index.html?preview=draft" target="_blank" class="admin-btn admin-btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem; text-decoration: none;">
+          Open In New Tab &nearr;
+        </a>
+        <button type="button" class="admin-btn admin-btn-primary" id="previewPublishBtn" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+          Publish Now
+        </button>
+        <button type="button" class="modal-close-btn" id="closePreviewBtn" style="position: static; font-size: 1.5rem; color: #94A3B8;">&times;</button>
+      </div>
+    </div>
+    <div class="preview-iframe-wrapper">
+      <iframe src="../index.html?preview=draft" id="previewIframe" class="preview-iframe" title="Website Preview"></iframe>
+    </div>
+  </div>
+
+  <!-- Change Password / Add User Modal (Super Admin) -->
+  <div class="admin-modal-overlay" id="userModal">
+    <div class="admin-modal-box">
+      <button type="button" class="modal-close-btn" id="closeUserModalBtn">&times;</button>
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;" id="userModalTitle">Edit Team Member</h3>
+      <form id="userForm">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="userFormName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="userFormEmail" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Role Scope</label>
+          <select id="userFormRole" class="form-input">
+            <option value="super_admin">Super Admin (Ismail)</option>
+            <option value="developer">Website Developer (Wardah)</option>
+            <option value="content_seo">Content &amp; SEO Manager (Farwa)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Password (leave empty to keep current)</label>
+          <input type="password" id="userFormPassword" class="form-input" placeholder="Min 8 characters">
+        </div>
+        <button type="submit" class="admin-btn admin-btn-primary" style="width: 100%; margin-top: 0.5rem;">Save Member</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Article Edit Modal -->
+  <div class="admin-modal-overlay" id="blogModal">
+    <div class="admin-modal-box" style="max-width: 600px;">
+      <button type="button" class="modal-close-btn" id="closeBlogModalBtn">&times;</button>
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;" id="blogModalTitle">Add New Article</h3>
+      <form id="blogForm">
+        <input type="hidden" id="blogFormId">
+        <div class="form-group">
+          <label class="form-label">Article Title</label>
+          <input type="text" id="blogFormTitle" class="form-input" required placeholder="e.g. Expanding Pakistan's Digital Horizon">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <input type="text" id="blogFormCategory" class="form-input" placeholder="e.g. Technology, Business, Education">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Author Name</label>
+          <input type="text" id="blogFormAuthor" class="form-input" placeholder="e.g. Farwa / PAK IGNITERS Editorial">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Excerpt / Summary</label>
+          <textarea id="blogFormExcerpt" rows="2" class="form-textarea" placeholder="Short description for preview"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Article Content</label>
+          <textarea id="blogFormContent" rows="5" class="form-textarea" placeholder="Write article content here..."></textarea>
+        </div>
+        <button type="submit" class="admin-btn admin-btn-primary" style="width: 100%; margin-top: 0.5rem;">Save Article</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="../js/content-data.js"></script>
+  <script src="js/admin-auth.js"></script>
+  <script src="js/admin-store.js"></script>
+  <script src="js/admin-editor.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

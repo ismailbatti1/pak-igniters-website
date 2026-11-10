@@ -100,3 +100,23 @@ Visit `http://localhost:3000` to preview.
    ```
 4. **Step 4:** In [Vercel](https://vercel.com), click **Add New Project** → Import `pak-igniters-website` from GitHub.
 5. **Step 5:** Vercel automatically deploys a live staging URL (e.g., `pak-igniters-website.vercel.app`).
+
+---
+
+## 7. Private Website Management Dashboard (`/admin`)
+
+The website includes a private, browser-based CMS dashboard located at `/admin` and `/admin/login`. Team members can manage website content, headlines, images, divisions, SEO, and blogs without editing code or using GitHub.
+
+### Access URLs
+- **Admin Dashboard:** `https://pak-igniters-website-pddw.vercel.app/admin`
+- **Login Portal:** `https://pak-igniters-website-pddw.vercel.app/admin/login`
+
+### Team Credentials & Roles
+
+| Member | Email | Role Scope | Capabilities |
+| :--- | :--- | :--- | :--- |
+| **Ismail** | `ismail137see@gmail.com` | **Super Admin** | Full website access, user management, passwords, publish live, AI chatbot & query routing |
+| **Wardah** | `wardah@pakigniters.com` | **Website Developer** | Visual editor, divisions, pages, media upload, WooCommerce staging |
+| **Farwa** | `farwa@pakigniters.com` | **Content & SEO Manager** | Bilingual copy (English/Urdu), articles, SEO titles, descriptions, image alt tags |
+
+> **Note:** Passwords can be updated at any time by the Super Admin in the dashboard.

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | PAK IGNITERS Management Portal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300704A'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h1>PAK <span>IGNITERS</span></h1>
+        <p>Private Website Management Dashboard</p>
+      </div>
+
+      <!-- Quick Role Preset Selector for Team Convenience -->
+      <div class="login-quick-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Select Team Member Account</span>
+      </div>
+      <div class="quick-members-grid">
+        <button type="button" class="quick-member-btn" id="btn-quick-ismail">
+          <span class="quick-member-name">Ismail</span>
+          <span class="quick-member-role">Super Admin</span>
+        </button>
+        <button type="button" class="quick-member-btn" id="btn-quick-wardah">
+          <span class="quick-member-name">Wardah</span>
+          <span class="quick-member-role">Developer</span>
+        </button>
+        <button type="button" class="quick-member-btn" id="btn-quick-farwa">
+          <span class="quick-member-name">Farwa</span>
+          <span class="quick-member-role">Content &amp; SEO</span>
+        </button>
+      </div>
+
+      <!-- Alert Box -->
+      <div class="login-alert" id="loginAlert"></div>
+
+      <!-- Login Form -->
+      <form id="adminLoginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="e.g. ismail137see@gmail.com" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="loginPassword" class="form-input" placeholder="Enter your secure password" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="togglePasswordBtn" aria-label="Toggle password visibility">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="login-options-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember me (8 hrs)</span>
+          </label>
+          <button type="button" class="forgot-link" id="openForgotBtn">Forgot password?</button>
+        </div>
+
+        <button type="submit" class="admin-btn admin-btn-primary login-submit-btn" id="submitBtn">
+          <span>Sign In to Dashboard</span>
+        </button>
+      </form>
+
+      <div class="login-footer-links">
+        <a href="../index.html">&larr; Back to Public Website</a>
+        <span style="opacity: 0.5;">v2.0 Executive CMS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Reset Request Modal -->
+  <div class="admin-modal-overlay" id="forgotModal">
+    <div class="admin-modal-box">
+      <button type="button" class="modal-close-btn" id="closeForgotBtn">&times;</button>
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;">Reset Account Password</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Enter your registered email address to receive password reset authorization from Super Admin (Ismail).
+      </p>
+
+      <div class="login-alert" id="forgotAlert"></div>
+
+      <form id="forgotForm">
+        <div class="form-group">
+          <label class="form-label" for="forgotEmail">Account Email</label>
+          <input type="email" id="forgotEmail" class="form-input" placeholder="e.g. wardah@pakigniters.com" required>
+        </div>
+        <button type="submit" class="admin-btn admin-btn-primary" style="width: 100%; margin-top: 0.5rem;">
+          Send Reset Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Load Auth Logic -->
+  <script src="js/admin-auth.js"></script>
+  <script>
+    (function() {
+      // Auto-redirect if already authenticated
+      var currentUser = AdminAuth.getCurrentUser();
+      if (currentUser) {
+        window.location.replace('index.html');
+        return;
+      }
+
+      var form = document.getElementById('adminLoginForm');
+      var emailInput = document.getElementById('loginEmail');
+      var passwordInput = document.getElementById('loginPassword');
+      var rememberInput = document.getElementById('rememberMe');
+      var submitBtn = document.getElementById('submitBtn');
+      var alertBox = document.getElementById('loginAlert');
+      var togglePassBtn = document.getElementById('togglePasswordBtn');
+      var forgotModal = document.getElementById('forgotModal');
+      var openForgotBtn = document.getElementById('openForgotBtn');
+      var closeForgotBtn = document.getElementById('closeForgotBtn');
+      var forgotForm = document.getElementById('forgotForm');
+      var forgotEmail = document.getElementById('forgotEmail');
+      var forgotAlert = document.getElementById('forgotAlert');
+
+      // Quick member fill helpers
+      var quickAccounts = {
+        ismail: { email: 'ismail137see@gmail.com', pass: 'Ismail@Igniters2026!' },
+        wardah: { email: 'wardah@pakigniters.com', pass: 'Wardah@Igniters2026!' },
+        farwa: { email: 'farwa@pakigniters.com', pass: 'Farwa@Igniters2026!' }
+      };
+
+      function setQuickAccount(key, btn) {
+        document.querySelectorAll('.quick-member-btn').forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        var acc = quickAccounts[key];
+        if (acc) {
+          emailInput.value = acc.email;
+          passwordInput.value = acc.pass;
+          showAlert('info', 'Loaded credentials for ' + key.toUpperCase() + '. Click Sign In to enter.');
+        }
+      }
+
+      document.getElementById('btn-quick-ismail').addEventListener('click', function() { setQuickAccount('ismail', this); });
+      document.getElementById('btn-quick-wardah').addEventListener('click', function() { setQuickAccount('wardah', this); });
+      document.getElementById('btn-quick-farwa').addEventListener('click', function() { setQuickAccount('farwa', this); });
+
+      // Password toggle
+      togglePassBtn.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          togglePassBtn.style.color = '#34D399';
+        } else {
+          passwordInput.type = 'password';
+          togglePassBtn.style.color = '';
+        }
+      });
+
+      function showAlert(type, message) {
+        alertBox.className = 'login-alert show ' + type;
+        alertBox.textContent = message;
+      }
+
+      // Handle Login Submit
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var email = emailInput.value.trim();
+        var password = passwordInput.value;
+
+        if (!email || !password) {
+          showAlert('error', 'Please enter both your email address and password.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Verifying Credentials...</span>';
+
+        try {
+          var res = await AdminAuth.login(email, password, rememberInput.checked);
+          if (res.success) {
+            showAlert('success', 'Authentication successful! Welcome, ' + res.user.name + '. Loading dashboard...');
+            setTimeout(function() {
+              window.location.replace('index.html');
+            }, 500);
+          } else {
+            showAlert('error', res.error || 'Invalid email or password.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Sign In to Dashboard</span>';
+          }
+        } catch (err) {
+          console.error('Login error:', err);
+          showAlert('error', 'A system error occurred. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Sign In to Dashboard</span>';
+        }
+      });
+
+      // Forgot Password Modal
+      openForgotBtn.addEventListener('click', function() {
+        forgotAlert.className = 'login-alert';
+        forgotEmail.value = emailInput.value || '';
+        forgotModal.classList.add('open');
+      });
+
+      closeForgotBtn.addEventListener('click', function() {
+        forgotModal.classList.remove('open');
+      });
+
+      forgotModal.addEventListener('click', function(e) {
+        if (e.target === forgotModal) forgotModal.classList.remove('open');
+      });
+
+      forgotForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = forgotEmail.value.trim();
+        var res = AdminAuth.requestPasswordReset(email);
+        if (res.success) {
+          forgotAlert.className = 'login-alert show success';
+          forgotAlert.textContent = res.message;
+          setTimeout(function() {
+            forgotModal.classList.remove('open');
+            showAlert('info', 'Reset instruction issued for ' + email + '. Ask Ismail (Super Admin) to approve or use temporary key.');
+          }, 2000);
+        } else {
+          forgotAlert.className = 'login-alert show error';
+          forgotAlert.textContent = res.error;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

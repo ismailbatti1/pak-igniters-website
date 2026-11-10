@@ -15,6 +15,94 @@
   // DOM Elements cache
   let langToggleBtn, mobileMenuBtn, navMenu, siteHeader, divisionsContainer, divisionTabsContainer, contactForm, formAlert;
 
+  /**
+   * Sync CMS content from LocalStorage (published or draft preview)
+   */
+  function syncCmsContent() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isDraftPreview = urlParams.get("preview") === "draft";
+      const storedKey = isDraftPreview ? "pak_igniters_draft_content" : "pak_igniters_published_content";
+      const storedRaw = localStorage.getItem(storedKey);
+
+      if (storedRaw && window.PAK_IGNITERS_CONTENT) {
+        const cmsData = JSON.parse(storedRaw);
+
+        // Merge English Content
+        if (window.PAK_IGNITERS_CONTENT.en) {
+          const en = window.PAK_IGNITERS_CONTENT.en;
+          if (cmsData.announcement && cmsData.announcement.text) en.announcement.text = cmsData.announcement.text;
+          if (cmsData.hero) {
+            if (cmsData.hero.title) en.hero.title = cmsData.hero.title;
+            if (cmsData.hero.badge) en.hero.badge = cmsData.hero.badge;
+            if (cmsData.hero.description) en.hero.description = cmsData.hero.description;
+            if (cmsData.hero.primaryBtnText) en.hero.primaryBtn = cmsData.hero.primaryBtnText;
+            if (cmsData.hero.secondaryBtnText) en.hero.secondaryBtn = cmsData.hero.secondaryBtnText;
+          }
+          if (cmsData.about) {
+            if (cmsData.about.title) en.about.title = cmsData.about.title;
+            if (cmsData.about.story) en.about.story = cmsData.about.story;
+          }
+          if (cmsData.contact) {
+            if (cmsData.contact.phone) en.contact.phone = cmsData.contact.phone;
+            if (cmsData.contact.primaryQueryEmail) en.contact.primaryQueryEmail = cmsData.contact.primaryQueryEmail;
+            if (cmsData.contact.publicEmail) en.contact.publicEmail = cmsData.contact.publicEmail;
+          }
+          if (Array.isArray(cmsData.divisions) && en.divisions && en.divisions.items) {
+            cmsData.divisions.forEach((d, idx) => {
+              if (en.divisions.items[idx]) {
+                if (d.title) en.divisions.items[idx].name = d.title;
+                if (d.description) en.divisions.items[idx].description = d.description;
+                if (d.features) en.divisions.items[idx].features = d.features;
+              }
+            });
+          }
+        }
+
+        // Merge Urdu Content
+        if (window.PAK_IGNITERS_CONTENT.ur) {
+          const ur = window.PAK_IGNITERS_CONTENT.ur;
+          if (cmsData.announcement && (cmsData.announcement.text_ur || cmsData.announcement.text)) {
+            ur.announcement.text = cmsData.announcement.text_ur || cmsData.announcement.text;
+          }
+          if (cmsData.hero) {
+            if (cmsData.hero.title_ur) ur.hero.title = cmsData.hero.title_ur;
+            if (cmsData.hero.badge_ur) ur.hero.badge = cmsData.hero.badge_ur;
+            if (cmsData.hero.description_ur) ur.hero.description = cmsData.hero.description_ur;
+          }
+          if (cmsData.about) {
+            if (cmsData.about.title_ur) ur.about.title = cmsData.about.title_ur;
+            if (cmsData.about.story_ur) ur.about.story = cmsData.about.story_ur;
+          }
+          if (cmsData.contact) {
+            if (cmsData.contact.phone) ur.contact.phone = cmsData.contact.phone;
+            if (cmsData.contact.primaryQueryEmail) ur.contact.primaryQueryEmail = cmsData.contact.primaryQueryEmail;
+            if (cmsData.contact.publicEmail) ur.contact.publicEmail = cmsData.contact.publicEmail;
+          }
+          if (Array.isArray(cmsData.divisions) && ur.divisions && ur.divisions.items) {
+            cmsData.divisions.forEach((d, idx) => {
+              if (ur.divisions.items[idx]) {
+                if (d.title_ur || d.title) ur.divisions.items[idx].name = d.title_ur || d.title;
+                if (d.description_ur || d.description) ur.divisions.items[idx].description = d.description_ur || d.description;
+              }
+            });
+          }
+        }
+      }
+
+      // Add preview banner if in draft preview mode
+      if (isDraftPreview && !document.getElementById("draftPreviewBanner")) {
+        const banner = document.createElement("div");
+        banner.id = "draftPreviewBanner";
+        banner.style.cssText = "background: #F59E0B; color: #000; font-size: 0.8rem; font-weight: 700; text-align: center; padding: 0.45rem 1rem; position: sticky; top: 0; z-index: 99999; display: flex; justify-content: center; align-items: center; gap: 1rem;";
+        banner.innerHTML = '<span>&#9888; PREVIEW MODE: Viewing Unpublished CMS Draft</span><a href="admin/index.html" style="color: #000; text-decoration: underline; font-weight: 800;">&larr; Back to Admin Dashboard</a>';
+        document.body.prepend(banner);
+      }
+    } catch (e) {
+      console.warn("CMS content sync bypassed:", e);
+    }
+  }
+
   function initApp() {
     langToggleBtn = document.getElementById("langToggleBtn");
     mobileMenuBtn = document.getElementById("mobileMenuBtn");
@@ -25,9 +113,25 @@
     contactForm = document.getElementById("contactForm");
     formAlert = document.getElementById("formAlert");
 
+    // Sync content from CMS (published or draft preview)
+    syncCmsContent();
+
     // Load saved language or default to English
     const savedLang = localStorage.getItem("pak_igniters_lang") || "en";
     setLanguage(savedLang);
+
+    // Listen for storage events (e.g. published from another tab)
+    window.addEventListener("storage", (e) => {
+      if (e.key === "pak_igniters_published_content" || e.key === "pak_igniters_draft_content") {
+        syncCmsContent();
+        setLanguage(state.currentLang);
+      }
+    });
+
+    window.addEventListener("pak_igniters_content_published", () => {
+      syncCmsContent();
+      setLanguage(state.currentLang);
+    });
 
     // Event Listeners
     if (langToggleBtn) {
