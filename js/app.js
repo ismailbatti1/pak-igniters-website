@@ -35,6 +35,34 @@
    */
   function syncCmsContent() {
     try {
+      // 0. Restore Navigation Menu if saved
+      const savedMenu = localStorage.getItem("pak_igniters_nav_menu_html");
+      const menuEl = document.getElementById("navMenu");
+      if (savedMenu && menuEl) {
+        menuEl.innerHTML = savedMenu;
+      }
+
+      // 0.1 Restore Full Section Snapshot (all added blocks & order)
+      const savedSnapshot = localStorage.getItem("pak_igniters_published_snapshot_html");
+      const urlParams = new URLSearchParams(window.location.search);
+      const isStudio = urlParams.get("edit") === "true";
+      if (savedSnapshot && !isStudio) {
+        const existingSections = document.querySelectorAll("section");
+        if (existingSections.length > 0) {
+          const footer = document.querySelector("footer");
+          existingSections.forEach(s => s.remove());
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = savedSnapshot;
+          while (wrapper.firstChild) {
+            if (footer) {
+              footer.parentNode.insertBefore(wrapper.firstChild, footer);
+            } else {
+              document.body.appendChild(wrapper.firstChild);
+            }
+          }
+        }
+      }
+
       const raw = localStorage.getItem("pak_igniters_published_overrides") || 
                   localStorage.getItem("pak_igniters_draft_overrides") || 
                   localStorage.getItem("pak_igniters_published_content");
