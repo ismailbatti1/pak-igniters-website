@@ -1,0 +1,490 @@
+/* ==========================================================================
+   PAK IGNITERS - ODOO-STYLE LIVE FRONTEND VISUAL BUILDER STYLESHEET
+   Features: Floating Sticky Bar, Element Outlines, Formatting Popover,
+   Image/Button Modal, Section Handles, and Role Badges
+   ========================================================================== */
+
+/* Shift page down for the sticky editor toolbar */
+body.odoo-edit-mode-active {
+  padding-top: 56px !important;
+}
+
+/* ==========================================================================
+   1. Floating Top Editor Bar
+   ========================================================================== */
+.odoo-builder-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 2px solid #00704A;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #FFFFFF;
+}
+
+.odoo-bar-left, .odoo-bar-center, .odoo-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.odoo-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 112, 74, 0.35);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #34D399;
+}
+
+.odoo-brand-pill svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.odoo-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #E2E8F0;
+}
+
+.odoo-user-role-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.odoo-user-role-tag.super_admin {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.odoo-user-role-tag.developer {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.odoo-user-role-tag.content_seo {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.odoo-status-text {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.odoo-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.odoo-status-dot.unsaved {
+  background: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B;
+}
+
+/* Odoo Action Buttons */
+.odoo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.odoo-btn-primary {
+  background: #00704A;
+  color: #FFFFFF;
+  border-color: #0A9B67;
+}
+
+.odoo-btn-primary:hover {
+  background: #0A9B67;
+  transform: translateY(-1px);
+}
+
+.odoo-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.odoo-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.odoo-btn-publish {
+  background: linear-gradient(135deg, #00704A, #10B981);
+  color: #FFFFFF;
+  border: 1px solid #34D399;
+  box-shadow: 0 4px 12px rgba(0, 112, 74, 0.4);
+}
+
+.odoo-btn-publish:hover {
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.6);
+  transform: translateY(-1px);
+}
+
+.odoo-btn-publish.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* ==========================================================================
+   2. Direct Editable Outlines & Badges (Hover States)
+   ========================================================================== */
+.odoo-editable-element {
+  position: relative !important;
+  transition: outline 0.15s ease, background 0.15s ease;
+}
+
+.odoo-editable-element:hover {
+  outline: 2px dashed #0A9B67 !important;
+  outline-offset: 3px !important;
+  cursor: pointer !important;
+  border-radius: 4px;
+}
+
+.odoo-editable-element:hover::after {
+  content: "✏️ Click to Edit";
+  position: absolute;
+  top: -24px;
+  right: 0;
+  background: #00704A;
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 99999;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Editing State */
+.odoo-editable-element.odoo-is-editing {
+  outline: 2px solid #38BDF8 !important;
+  outline-offset: 4px !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  cursor: text !important;
+  border-radius: 4px;
+}
+
+.odoo-editable-element.odoo-is-editing::after {
+  content: "Active Editing...";
+  background: #0284C7;
+}
+
+/* ==========================================================================
+   3. Floating Mini Formatting Toolbar (Above Edited Text)
+   ========================================================================== */
+.odoo-mini-toolbar {
+  position: absolute;
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 1000000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  animation: odooFadeIn 0.15s ease;
+}
+
+.odoo-mini-toolbar button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #E2E8F0;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.odoo-mini-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.odoo-mini-btn-save {
+  background: #00704A !important;
+  color: #FFFFFF !important;
+  border-color: #0A9B67 !important;
+}
+
+.odoo-mini-btn-save:hover {
+  background: #0A9B67 !important;
+}
+
+.odoo-mini-btn-cancel {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #F87171 !important;
+}
+
+/* ==========================================================================
+   4. Image Hover & Replacement Trigger
+   ========================================================================== */
+.odoo-image-wrapper {
+  position: relative !important;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.odoo-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: inherit;
+  z-index: 10;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.odoo-image-wrapper:hover .odoo-image-overlay {
+  opacity: 1;
+}
+
+.odoo-image-badge {
+  background: #00704A;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   5. Direct Section Controls Handle
+   ========================================================================== */
+.odoo-section-handle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 9000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+section:hover .odoo-section-handle,
+header:hover .odoo-section-handle,
+footer:hover .odoo-section-handle {
+  opacity: 1;
+}
+
+.odoo-section-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+}
+
+.odoo-section-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.odoo-section-btn:hover {
+  background: #00704A;
+  border-color: #0A9B67;
+}
+
+/* ==========================================================================
+   6. Universal Modals (Image, Button, Section Modals)
+   ========================================================================== */
+.odoo-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  z-index: 10000000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.odoo-modal-backdrop.open {
+  display: flex;
+}
+
+.odoo-modal-box {
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  animation: odooFadeIn 0.2s ease;
+  color: #FFFFFF;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.odoo-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.odoo-modal-subtitle {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-bottom: 1.5rem;
+}
+
+.odoo-form-group {
+  margin-bottom: 1.15rem;
+}
+
+.odoo-form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  margin-bottom: 0.4rem;
+}
+
+.odoo-form-input, .odoo-form-textarea, .odoo-form-select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background: #0B1120;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.odoo-form-input:focus, .odoo-form-textarea:focus, .odoo-form-select:focus {
+  outline: none;
+  border-color: #0A9B67;
+  box-shadow: 0 0 0 3px rgba(10, 155, 103, 0.25);
+}
+
+.odoo-preview-box {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.odoo-preview-img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.odoo-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+}
+
+/* Animations */
+@keyframes odooFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes odooPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.odoo-pulse {
+  animation: odooPulse 1.5s infinite;
+}
