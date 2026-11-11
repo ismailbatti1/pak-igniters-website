@@ -41,109 +41,127 @@ const PAK_IGNITERS_CONTENT = {
         {
           id: "digital",
           name: "Pak Igniters Digital",
-          badge: "Growth & Performance",
+          badge: "#20BCEB • Digital Marketing & Growth",
+          color: "#20BCEB",
           icon: "digital",
-          description: "Data-driven performance marketing, global search engine optimization, content strategy, and dynamic brand positioning designed to scale Pakistani digital footprint globally.",
+          description: "Performance-minded digital growth partner for businesses. It plans and executes digital marketing that improves visibility, engagement, qualified enquiries and measurable commercial outcomes.",
           features: [
-            "Data-Backed SEO & Content Architecture",
-            "Performance Marketing & Social Campaigns",
-            "Brand Strategy & Multi-Channel Positioning",
-            "Analytics & Market Research Reports"
+            "Social Media Strategy & Management",
+            "Content Production & Copywriting",
+            "Meta & Paid Advertising Campaigns",
+            "SEO & Funnel Optimization"
           ],
-          leadRole: "Farwa (Strategy) & Ismail (Creative Direction)"
+          leadRole: "Department Lead: Mr. Saeed ul Hassan",
+          slogan: "Your Business. Our Digital Growth."
         },
         {
           id: "commerce",
           name: "Pak Igniters Commerce",
-          badge: "E-Commerce & Scale",
+          badge: "#24B47E • E-Commerce & Marketplaces",
+          color: "#24B47E",
           icon: "commerce",
-          description: "End-to-end e-commerce solutions, WooCommerce store architectures, catalog optimization, and frictionless cross-border transaction funnels.",
+          description: "Reliable e-commerce operations and growth partner for brands on Amazon, eBay, Etsy, Shopify, and WooCommerce with disciplined store management and catalog SEO.",
           features: [
-            "WooCommerce & Storefront Architecture",
-            "Payment Gateway Integration (Local & Global)",
-            "Product Catalog & Inventory Automation",
-            "Conversion Rate Optimization (CRO)"
+            "Amazon, eBay & Etsy Operations",
+            "Shopify & WooCommerce Setup",
+            "Product Research & Competitor Analysis",
+            "Catalogue Quality & Store Merchandising"
           ],
-          leadRole: "Wardah (WordPress & WooCommerce Lead)"
+          leadRole: "Department Lead: Mr. Zaigham ullah",
+          slogan: "Turn Online Stores into Growing Businesses."
         },
         {
           id: "webstudio",
           name: "Pak Igniters Web Studio",
-          badge: "Engineering & Design",
+          badge: "#8B78E6 • Web Development & Creative",
+          color: "#8B78E6",
           icon: "webstudio",
-          description: "Modern, blazing-fast web platforms built with human-centered UI/UX design, mobile responsiveness, Jamstack architecture, and custom CMS implementations.",
+          description: "Creative and technology studio that turns business ideas into professional digital experiences combining visual design, fast Jamstack web builds, and multimedia production.",
           features: [
-            "Custom UI/UX & Responsive Web Applications",
-            "Modern Jamstack & Vercel Edge Deployments",
-            "Performance Tuning & Accessibility (WCAG)",
-            "Future-Proof WordPress Custom Theme Migration"
+            "Brand Identity & Graphic Design",
+            "Business Websites & Landing Pages",
+            "WordPress, Shopify & WooCommerce Development",
+            "UI/UX Interface Design & Video Editing"
           ],
-          leadRole: "Ismail (UI/UX & AI) & Wardah (WordPress)"
+          leadRole: "Department Lead: Mr. Hamza",
+          slogan: "Design. Develop. Deliver."
         },
         {
           id: "academy",
           name: "Pak Igniters Academy",
-          badge: "Education & Skills",
+          badge: "#D6A84F • Skills & Career Development",
+          color: "#D6A84F",
           icon: "academy",
-          description: "Hands-on vocational masterclasses, coding bootcamps, and digital apprenticeship programs bridging the gap between student theory and commercial delivery.",
+          description: "Practical learning institution where participants gain relevant skills, demonstrate competence, build portfolios, and prepare for freelancing, employment, or entrepreneurship.",
           features: [
-            "Practical Full-Stack & WordPress Bootcamps",
-            "AI Integration & Prompt Engineering Workshops",
-            "Portfolio Building & Industry Mentorship",
-            "Certification & Direct Project Placements"
+            "Graphic Design & Creative Tools",
+            "Digital Marketing & Content Operations",
+            "Web Development & WordPress Bootcamps",
+            "AI Tools, Productivity & Freelancing SOPs"
           ],
-          leadRole: "Joint Technical Leads"
+          leadRole: "Department Lead: Mr. Saeed ul Hassan",
+          slogan: "Learn Skills. Build Your Future."
         },
         {
           id: "leadership",
           name: "Pak Igniters Leadership",
-          badge: "Empowerment & Impact",
+          badge: "#E47B62 • Human Growth & Teacher Dev",
+          color: "#E47B62",
           icon: "leadership",
-          description: "Fostering the next generation of Pakistani leaders, community innovators, and executive decision-makers through structured public speaking, team management, and ethics.",
+          description: "Trusted learning and development platform for educators, parents, youth, and professionals providing teacher training, modern pedagogy, parenting education, and human growth.",
           features: [
-            "Youth Leadership & Public Speaking Clinics",
-            "Project Management & Collaborative Workflows",
-            "Cross-Functional Team Building",
-            "Community Impact Initiatives"
+            "Teacher Professional Development & Pedagogy",
+            "AI & Digital Tools for Educators",
+            "Parenting Education in the Digital Age",
+            "Youth Leadership & Executive Confidence"
           ],
-          leadRole: "Executive Mentorship Council"
+          leadRole: "Department Lead: Miss Asma",
+          slogan: "Develop People. Transform Lives."
         },
         {
           id: "business",
           name: "Pak Igniters Business Solutions",
-          badge: "Enterprise & Consulting",
+          badge: "#3974C6 • Commercial Growth & CRM",
+          color: "#3974C6",
           icon: "business",
-          description: "Tailored digital transformation advisory, process automation, workflow optimization, and scalable systems for startups and mid-market organizations.",
+          description: "Commercial relationship and growth engine for Pak Igniters identifying opportunities, qualifying prospects, packaging proposals, and driving strategic partnerships.",
           features: [
-            "Process Digitization & Automation",
-            "Technical Feasibility & RFP Preparation",
-            "CRM & Pipeline Implementations",
-            "Cost-Optimized Cloud & Web Roadmaps"
+            "Corporate Lead Generation & Research",
+            "Client Discovery & Proposal Coordination",
+            "Institutional Outreach & Partnerships",
+            "CRM & Sales-Pipeline Management"
           ],
-          leadRole: "Strategic Advisory"
+          leadRole: "Department Lead: Mirza Usman Ghani (CEO)",
+          slogan: "Turning Opportunities into Results."
         }
       ]
     },
     collaboration: {
-      title: "Team Collaboration Architecture",
-      subtitle: "Three dedicated leads driving excellence across engineering, content, and e-commerce.",
+      title: "Executive Leadership & Team Architecture",
+      subtitle: "Under the executive leadership of CEO Mirza Usman Ghani, our dedicated leads drive operational excellence across Pakistan.",
       members: [
         {
-          name: "Ismail",
-          title: "AI, Creative & UI/UX Development Lead",
-          scope: "AI chatbot, interactive buttons, UI/UX system design, creative graphics, and frontend architecture.",
+          name: "Mirza Usman Ghani",
+          title: "Chief Executive Officer & Founder",
+          scope: "Master brand strategy, organizational governance, high-value institutional partnerships, and executive vision across all 6 divisions.",
+          badge: "Executive Leadership"
+        },
+        {
+          name: "Muhammad Ismail Bhatti",
+          title: "Super Admin & Executive Lead",
+          scope: "Technical oversight, CMS architecture, live Vercel deployments, AI assistant integration, and overall operations desk.",
           badge: "Branch: dev-ismail"
         },
         {
           name: "Wardah",
-          title: "WordPress & WooCommerce Development Lead",
-          scope: "WordPress theme planning, WooCommerce store integration, product inventory schemas, and CMS migration.",
+          title: "Website Developer & WordPress Lead",
+          scope: "Jamstack architecture, WooCommerce store setup, headless CMS implementation, and technical frontend engineering.",
           badge: "Branch: dev-wardah"
         },
         {
           name: "Farwa",
-          title: "Website Strategy, Content & Quality Lead",
-          scope: "Editorial content, brand voice, bilingual translations, SEO metadata, and quality assurance testing.",
+          title: "Content Strategist & Quality Lead",
+          scope: "Search engine optimization (SEO), bilingual localization (English/Urdu), editorial campaigns, and brand consistency.",
           badge: "Branch: dev-farwa"
         }
       ]

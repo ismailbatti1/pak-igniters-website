@@ -25,3 +25,7 @@ yarn-error.log*
 Thumbs.db
 .vscode/
 .idea/
+
+assets/briefs/
+package.json
+package-lock.json
