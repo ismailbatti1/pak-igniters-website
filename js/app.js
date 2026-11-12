@@ -34,6 +34,14 @@
    * Applies all edited texts, images, and buttons to the live website instantly!
    */
   function syncCmsContent() {
+  const CURRENT_BUILD_VERSION = "2026.11.12.v3";
+  if (localStorage.getItem("pak_igniters_build_ver") !== CURRENT_BUILD_VERSION) {
+    localStorage.removeItem("pak_igniters_published_snapshot_html");
+    localStorage.removeItem("pak_igniters_nav_menu_html");
+    localStorage.removeItem("pak_igniters_published_overrides");
+    localStorage.setItem("pak_igniters_build_ver", CURRENT_BUILD_VERSION);
+  }
+
     try {
       // 0. Restore Navigation Menu if saved
       const savedMenu = localStorage.getItem("pak_igniters_nav_menu_html");
@@ -223,24 +231,33 @@
         const btn = e.target.closest("button[data-enquiry]");
         if (!btn) return;
         enquiryTabs.querySelectorAll("button").forEach(b => {
-          b.style.borderColor = "var(--border-color)";
-          b.style.background = "var(--bg-surface-elevated)";
+          b.classList.remove("active");
+          b.style.background = "rgba(255,255,255,0.08)";
+          b.style.color = "#FFFFFF";
+          b.style.borderColor = "rgba(255,255,255,0.15)";
         });
-        btn.style.borderColor = "var(--color-brand-cyan)";
-        btn.style.background = "rgba(32, 188, 235, 0.15)";
+        btn.classList.add("active");
+        btn.style.background = "#20BCEB";
+        btn.style.color = "#101D35";
+        btn.style.borderColor = "#20BCEB";
         
         const type = btn.getAttribute("data-enquiry");
-        const hiddenField = document.getElementById("formEnquiryType");
-        const divisionSelect = document.getElementById("formDivision");
+        const hiddenField = document.getElementById("formEnquiryType") || document.getElementById("enquiryTypeInput");
+        const subjectField = document.getElementById("formSubjectInput");
+        const serviceSelect = document.getElementById("contactSubject");
+        
         if (type === "business") {
-          if (hiddenField) hiddenField.value = "Business Services Enquiry";
-          if (divisionSelect) divisionSelect.selectedIndex = 0;
+          if (hiddenField) hiddenField.value = "business";
+          if (subjectField) subjectField.value = "New Business Inquiry - PAK IGNITERS";
+          if (serviceSelect) serviceSelect.value = "Digital Marketing & Performance Ads";
         } else if (type === "course") {
-          if (hiddenField) hiddenField.value = "Course Admission Enquiry";
-          if (divisionSelect) divisionSelect.value = "Pak Igniters Academy (Skills & Career Development)";
+          if (hiddenField) hiddenField.value = "course";
+          if (subjectField) subjectField.value = "New Course Admission Inquiry - PAK IGNITERS";
+          if (serviceSelect) serviceSelect.value = "Academy Skill Courses & Admissions";
         } else {
-          if (hiddenField) hiddenField.value = "General Contact Enquiry";
-          if (divisionSelect) divisionSelect.value = "General Corporate Inquiry";
+          if (hiddenField) hiddenField.value = "general";
+          if (subjectField) subjectField.value = "New General Contact Inquiry - PAK IGNITERS";
+          if (serviceSelect) serviceSelect.value = "Other Corporate Inquiry";
         }
       });
     }
@@ -342,11 +359,12 @@
       card.innerHTML = `
         <div class="division-card-top">
           <div class="division-badge-row">
-            <span class="division-pill">${item.badge}</span>
-            <div class="division-icon-box">
+            <span class="division-pill" style="border-left: 3px solid ${item.color || '#20BCEB'};">${item.badge}</span>
+            <div class="division-icon-box" style="color: ${item.color || '#20BCEB'};">
               ${getDivisionIcon(item.id)}
             </div>
           </div>
+          <span class="division-master-label" style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: ${item.color || '#20BCEB'}; display: block; margin-bottom: 0.35rem;">A PAK IGNITERS DIVISION</span>
           <h3 class="division-title">${item.name}</h3>
           <p class="division-desc">${item.description}</p>
           <ul class="division-features">
@@ -355,10 +373,10 @@
         </div>
         <div class="division-card-bottom">
           <span class="division-lead-tag">
-            <strong>${state.currentLang === "ur" ? "ذمہ دار لیڈ:" : "Lead:"}</strong> ${item.leadRole}
+            <strong>${state.currentLang === "ur" ? "شعبہ کے نگران:" : "Department Lead:"}</strong> ${item.leadRole}
           </span>
-          <a href="#contact" class="btn btn-secondary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
-            ${state.currentLang === "ur" ? "تفصیلات" : "Inquire"}
+          <a href="#contact" class="btn btn-secondary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem; border-color: ${item.color || 'var(--border-color)'};">
+            ${state.currentLang === "ur" ? "رابطہ کریں" : "Inquire"} &rarr;
           </a>
         </div>
       `;
