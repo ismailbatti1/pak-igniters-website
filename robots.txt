@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pak-igniters-website-pddw.vercel.app/sitemap.xml

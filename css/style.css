@@ -5,30 +5,46 @@
    ========================================================================== */
 
 :root {
-  /* Brand Color Palette */
-  --color-primary: #00704A;           /* Deep Emerald Green */
-  --color-primary-dark: #004D33;      /* Midnight Forest */
-  --color-primary-light: #0A9B67;     /* Bright Mint Green */
-  --color-accent-gold: #F59E0B;       /* Ignition Amber Gold */
-  --color-accent-flame: #EF4444;      /* Flame Red Accent */
+  /* Approved Brand Color Palette (Official Brief Nov 2026) */
+  --color-brand-midnight: #101D35;    /* Midnight Navy - Primary Brand Color */
+  --color-brand-cyan: #20BCEB;        /* Electric Cyan - Technology Accent */
+  --color-brand-gold: #D6A84F;        /* Premium Gold - Premium Accent */
+  --color-brand-white: #FFFFFF;       /* Neutral White */
+  --color-brand-ice: #F2F5F9;         /* Ice Grey - Light Background */
+  --color-brand-charcoal: #26364B;    /* Slate Charcoal - Body / Secondary Text */
+
+  /* Division Accent Colors (Controlled Highlights) */
+  --color-div-digital: #20BCEB;       /* Division 01 Digital - Electric Cyan */
+  --color-div-commerce: #24B47E;      /* Division 02 Commerce - Emerald Green */
+  --color-div-webstudio: #8B78E6;     /* Division 03 Web Studio - Royal Violet */
+  --color-div-academy: #D6A84F;       /* Division 04 Academy - Premium Gold */
+  --color-div-leadership: #E47B62;    /* Division 05 Leadership - Warm Coral */
+  --color-div-business: #3974C6;      /* Division 06 Business Solutions - Executive Blue */
+
+  /* System UI Color Mappings */
+  --color-primary: #101D35;           /* Midnight Navy */
+  --color-primary-dark: #0A1324;      /* Deep Midnight */
+  --color-primary-light: #20BCEB;     /* Electric Cyan */
+  --color-accent-gold: #D6A84F;       /* Premium Gold */
+  --color-accent-flame: #EF4444;      /* Spark Accent */
   
-  /* Neutral Dark Theme Foundations */
-  --bg-main: #0B1120;                 /* Deep Space Navy */
-  --bg-surface: #131D31;              /* Polished Card Surface */
-  --bg-surface-elevated: #1E293B;     /* Elevated Card Surface */
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-accent: rgba(245, 158, 11, 0.35);
+  /* Neutral Theme Foundations */
+  --bg-main: #101D35;                 /* Midnight Navy Primary Background */
+  --bg-surface: #172644;              /* Midnight Surface Card */
+  --bg-surface-elevated: #1E3156;     /* Elevated Card Surface */
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(32, 188, 235, 0.35);
 
   /* Typography Colors */
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --text-highlight: #FDE68A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-highlight: #D6A84F;
 
-  /* Typography Families */
+  /* Typography Families (Montserrat for Headings, Inter for Body, Noto Nastaliq Urdu for Urdu) */
   --font-en: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Outfit', 'Inter', sans-serif;
-  --font-ur: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Sans Arabic', Tahoma, sans-serif;
+  --font-heading: 'Montserrat', 'Inter', sans-serif;
+  --font-ur: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', Tahoma, sans-serif;
 
   /* Layout Spacing */
   --max-width: 1200px;
@@ -356,15 +372,17 @@ html[dir="rtl"] .chat-bubble.user {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(0, 112, 74, 0.3);
+  background: linear-gradient(135deg, var(--color-brand-cyan), #0099cc);
+  color: #101D35;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(32, 188, 235, 0.35);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
-  box-shadow: 0 6px 20px rgba(10, 155, 103, 0.45);
+  background: linear-gradient(135deg, #38c6ee, var(--color-brand-cyan));
+  box-shadow: 0 6px 20px rgba(32, 188, 235, 0.55);
   transform: translateY(-2px);
+  color: #101D35;
 }
 
 .btn-secondary {
@@ -375,21 +393,22 @@ html[dir="rtl"] .chat-bubble.user {
 
 .btn-secondary:hover {
   background: var(--bg-surface);
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
+  border-color: var(--color-brand-gold);
+  color: var(--color-brand-gold);
   transform: translateY(-2px);
 }
 
 .btn-accent {
-  background: linear-gradient(135deg, var(--color-accent-gold), #D97706);
-  color: #0B1120;
+  background: linear-gradient(135deg, var(--color-brand-gold), #b38634);
+  color: #101D35;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 15px rgba(214, 168, 79, 0.35);
 }
 
 .btn-accent:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
+  color: #101D35;
 }
 
 /* Mobile Hamburger */
@@ -416,7 +435,7 @@ html[dir="rtl"] .chat-bubble.user {
   padding-top: calc(var(--header-total-height) + 3rem);
   padding-bottom: 4.5rem;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 20%, rgba(0, 112, 74, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
+  background: radial-gradient(circle at 50% 20%, rgba(32, 188, 235, 0.12) 0%, rgba(16, 29, 53, 0) 70%), var(--bg-main);
 }
 
 .hero-content {
@@ -429,22 +448,23 @@ html[dir="rtl"] .chat-bubble.user {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(0, 112, 74, 0.18);
-  border: 1px solid rgba(10, 155, 103, 0.4);
-  color: #34D399;
+  background: rgba(32, 188, 235, 0.12);
+  border: 1px solid rgba(32, 188, 235, 0.35);
+  color: var(--color-brand-cyan);
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
 }
 
 .badge-pulse {
   width: 8px;
   height: 8px;
-  background: #34D399;
+  background: var(--color-brand-cyan);
   border-radius: 50%;
-  box-shadow: 0 0 10px #34D399;
+  box-shadow: 0 0 10px var(--color-brand-cyan);
   animation: pulseAnimation 2s infinite;
 }
 
@@ -494,9 +514,9 @@ html[dir="rtl"] .chat-bubble.user {
 
 .hero-stats-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 640px;
+  max-width: 740px;
   margin: 0 auto;
   padding-top: 2rem;
   border-top: 1px solid var(--border-color);
@@ -574,10 +594,11 @@ html[dir="rtl"] .chat-bubble.user {
 }
 
 .division-tab-btn.active {
-  background: var(--color-primary);
-  color: #FFFFFF;
-  border-color: var(--color-primary-light);
-  box-shadow: 0 4px 12px rgba(0, 112, 74, 0.4);
+  background: var(--color-brand-cyan);
+  color: #101D35;
+  font-weight: 700;
+  border-color: var(--color-brand-cyan);
+  box-shadow: 0 4px 12px rgba(32, 188, 235, 0.35);
 }
 
 /* Division Cards Grid */

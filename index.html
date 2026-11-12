@@ -607,8 +607,15 @@
         <span class="section-eyebrow">DIRECT COMMUNICATIONS</span>
         <h2 class="section-title odoo-editable" data-i18n="contact.title">Connect with PAK IGNITERS</h2>
         <p class="section-subtitle odoo-editable" data-i18n="contact.subtitle">
-          Have a project inquiry, admission question, or partnership proposal? Reach our leadership team directly.
+          Have a business project inquiry, course admission question, or general message? Select your category below.
         </p>
+
+        <!-- Separate Enquiry Routes -->
+        <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;" id="enquiryTypeTabs">
+          <button type="button" class="btn btn-secondary active-enquiry-tab" data-enquiry="business" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-color: var(--color-brand-cyan); color: #fff;">🏢 Business Services Enquiry</button>
+          <button type="button" class="btn btn-secondary" data-enquiry="course" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">🎓 Course Admission Enquiry</button>
+          <button type="button" class="btn btn-secondary" data-enquiry="general" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">✉️ General Contact</button>
+        </div>
       </div>
 
       <div class="contact-layout-grid">
@@ -664,6 +671,8 @@
           <div class="form-alert" id="formAlert"></div>
 
           <form id="contactForm" novalidate>
+            <input type="hidden" id="formEnquiryType" name="enquiry_type" value="Business Services Enquiry">
+
             <div class="form-group">
               <label class="form-label" for="formName" data-i18n="contact.form.nameLabel">Your Full Name</label>
               <input type="text" id="formName" name="name" class="form-control" required placeholder="e.g. Ali Khan" data-i18n="contact.form.namePlaceholder">
@@ -677,15 +686,23 @@
             <div class="form-group">
               <label class="form-label" for="formDivision" data-i18n="contact.form.divisionLabel">Interested Service / Division</label>
               <select id="formDivision" name="division" class="form-control" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="training">Training &amp; Coaching (Academy)</option>
-                <option value="content">Digital Content Creation (Studio)</option>
-                <option value="courses">Online Courses &amp; Certifications</option>
-                <option value="advertising">AI-Powered Product Advertising</option>
-                <option value="digital">Digital Marketing &amp; Promotion</option>
-                <option value="commerce">E-Commerce Store &amp; Marketplace Management</option>
-                <option value="leadership">Leadership &amp; Human Growth</option>
-                <option value="business">Business Solutions &amp; Partnerships</option>
+                <optgroup label="🏢 Business Services &amp; Divisions">
+                  <option value="Pak Igniters Digital (Digital Marketing & Growth)">Pak Igniters Digital (#20BCEB)</option>
+                  <option value="Pak Igniters Commerce (E-Commerce & Store Management)">Pak Igniters Commerce (#24B47E)</option>
+                  <option value="Pak Igniters Web Studio (Web Development & Creative)">Pak Igniters Web Studio (#8B78E6)</option>
+                  <option value="Pak Igniters Business Solutions (Partnerships & CRM)">Pak Igniters Business Solutions (#3974C6)</option>
+                </optgroup>
+                <optgroup label="🎓 Course &amp; Training Admissions">
+                  <option value="Pak Igniters Academy (Skills & Career Development)">Pak Igniters Academy (#D6A84F)</option>
+                  <option value="Pak Igniters Leadership (Human Growth & Pedagogy)">Pak Igniters Leadership (#E47B62)</option>
+                  <option value="Digital Marketing Complete Course (Rs. 4,999)">Digital Marketing Course Admission</option>
+                  <option value="AI Tools for Content Creation (Rs. 3,999)">AI Tools Course Admission</option>
+                  <option value="E-commerce Business from Scratch (Rs. 5,499)">E-Commerce Course Admission</option>
+                </optgroup>
+                <optgroup label="✉️ General Inquiries">
+                  <option value="General Corporate Inquiry">General Corporate Inquiry</option>
+                  <option value="Institutional Partnership Proposal">Institutional Partnership Proposal</option>
+                </optgroup>
               </select>
             </div>
 

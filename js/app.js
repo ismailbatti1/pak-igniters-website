@@ -216,6 +216,35 @@
       });
     }
 
+    // Enquiry Type Tabs (Business vs Course vs General)
+    const enquiryTabs = document.getElementById("enquiryTypeTabs");
+    if (enquiryTabs) {
+      enquiryTabs.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-enquiry]");
+        if (!btn) return;
+        enquiryTabs.querySelectorAll("button").forEach(b => {
+          b.style.borderColor = "var(--border-color)";
+          b.style.background = "var(--bg-surface-elevated)";
+        });
+        btn.style.borderColor = "var(--color-brand-cyan)";
+        btn.style.background = "rgba(32, 188, 235, 0.15)";
+        
+        const type = btn.getAttribute("data-enquiry");
+        const hiddenField = document.getElementById("formEnquiryType");
+        const divisionSelect = document.getElementById("formDivision");
+        if (type === "business") {
+          if (hiddenField) hiddenField.value = "Business Services Enquiry";
+          if (divisionSelect) divisionSelect.selectedIndex = 0;
+        } else if (type === "course") {
+          if (hiddenField) hiddenField.value = "Course Admission Enquiry";
+          if (divisionSelect) divisionSelect.value = "Pak Igniters Academy (Skills & Career Development)";
+        } else {
+          if (hiddenField) hiddenField.value = "General Contact Enquiry";
+          if (divisionSelect) divisionSelect.value = "General Corporate Inquiry";
+        }
+      });
+    }
+
     // Contact Form Validation & Handler
     if (contactForm) {
       contactForm.addEventListener("submit", handleFormSubmission);
@@ -409,13 +438,17 @@
       submitBtn.textContent = isUrdu ? "ارسال کیا جا رہا ہے..." : "Sending inquiry...";
     }
 
+    const hiddenType = document.getElementById("formEnquiryType");
+    const enquiryType = hiddenType ? hiddenType.value : "General Inquiry";
+
     // Prepare payload targeting Ismail's email with CC to info.pakigniters@gmail.com
     const inquiryPayload = {
+      enquiry_type: enquiryType,
       name: name,
       email: email,
       division: division,
       message: message,
-      _subject: `New PAK IGNITERS Web Inquiry: ${division} (${name})`,
+      _subject: `[${enquiryType}] PAK IGNITERS: ${division} (${name})`,
       _cc: "info.pakigniters@gmail.com",
       _replyto: email
     };
