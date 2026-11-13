@@ -1862,7 +1862,7 @@ textarea.form-control {
   display: flex;
   width: max-content;
   white-space: nowrap;
-  animation: marqueeTicker 28s linear infinite;
+  animation: marqueeTickerAlternate 32s ease-in-out infinite alternate;
   will-change: transform;
 }
 
@@ -1895,18 +1895,18 @@ textarea.form-control {
   font-size: 1.1rem;
 }
 
-@keyframes marqueeTicker {
+@keyframes marqueeTickerAlternate {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-50% + 20vw)); }
 }
 
 html[dir="rtl"] .moving-ticker-track {
-  animation: marqueeTickerRtl 28s linear infinite;
+  animation: marqueeTickerRtlAlternate 32s ease-in-out infinite alternate;
 }
 
-@keyframes marqueeTickerRtl {
+@keyframes marqueeTickerRtlAlternate {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(50%); }
+  100% { transform: translateX(calc(50% - 20vw)); }
 }
 
 

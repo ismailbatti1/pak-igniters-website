@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PAK IGNITERS Academy — Professional Courses & Training Programs in Digital Marketing, AI Tools, E-Commerce, and Web Development. Enroll today.">
+  <title>Courses & Training | PAK IGNITERS Academy — Learn. Create. Earn. Lead.</title>
+
+  <!-- Google Fonts: Inter, Montserrat, Outfit, Noto Nastaliq Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Brand Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/visual-editor.css">
+
+  <style>
+    /* =====================================================================
+       Courses Page — Page-scoped overrides only
+       ===================================================================== */
+
+    /* Ticker animation for this page */
+    @keyframes marqueeTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-33.3333%); }
+    }
+
+    .courses-ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeTicker 30s linear infinite;
+    }
+
+    /* Page Hero */
+    .courses-hero {
+      background: var(--bg-surface);
+      padding: 4rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .courses-hero .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-brand-gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .courses-hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #FFFFFF;
+      margin: 0 auto 1rem auto;
+      max-width: 820px;
+      line-height: 1.2;
+    }
+
+    .courses-hero .hero-subtitle {
+      font-size: 1.05rem;
+      color: #94A3B8;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Why Learn With Us cards */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      text-align: center;
+    }
+
+    .why-card .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-card h3 {
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      color: #94A3B8;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       Sticky Site Header
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <!-- Top Contact Details Bar -->
+    <div class="top-announcement-bar">
+      <div class="container top-announcement-content">
+        <a href="tel:+923082481481" class="top-contact-link" title="Call Helpline">
+          <svg viewBox="0 0 24 24" class="top-link-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>+92 308 2 481 481</span>
+        </a>
+        <span class="announcement-sep">•</span>
+        <a href="mailto:info.pakigniters@gmail.com" class="top-contact-link" title="Official Inquiries">
+          <svg viewBox="0 0 24 24" class="top-link-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info.pakigniters@gmail.com</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="nav-bar-wrapper">
+      <div class="container nav-container">
+
+        <!-- Official Logo -->
+        <a href="index.html" class="brand-wrapper" aria-label="PAK IGNITERS Official Home">
+          <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS - Unlock Your Potential" class="brand-official-logo">
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="divisions.html" class="nav-link">Our Divisions</a></li>
+          <li><a href="courses.html" class="nav-link" style="color: var(--color-brand-gold);">Courses &amp; Training</a></li>
+          <li><a href="products.html" class="nav-link">Digital Products</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li class="mobile-drawer-cta">
+            <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center;">Get a Quote</a>
+          </li>
+        </ul>
+
+        <!-- Action Items -->
+        <div class="nav-actions">
+          <!-- Language Switcher -->
+          <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language / زبان تبدیل کریں" aria-label="Toggle Language">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span class="lang-label" data-i18n="nav.langSwitch">اردو</span>
+          </button>
+
+          <!-- Desktop CTA -->
+          <a href="contact.html" class="btn btn-primary header-desktop-cta">Get a Quote</a>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Moving Tagline Announcement Strip
+       ======================================================================== -->
+  <div class="moving-tagline-bar" aria-label="Moving Announcement">
+    <div class="moving-ticker-track courses-ticker-track">
+      <!-- Set 1 -->
+      <span class="moving-ticker-item">
+        <span class="ticker-gold">Learn. Create. Earn. Lead.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span class="ticker-blue">Explore Our Digital Services.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Build Skills. Grow Your Business.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Discover Courses and Digital Products.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+      </span>
+      <!-- Set 2 (duplicate) -->
+      <span class="moving-ticker-item">
+        <span class="ticker-gold">Learn. Create. Earn. Lead.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span class="ticker-blue">Explore Our Digital Services.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Build Skills. Grow Your Business.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Discover Courses and Digital Products.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+      </span>
+      <!-- Set 3 (duplicate) -->
+      <span class="moving-ticker-item">
+        <span class="ticker-gold">Learn. Create. Earn. Lead.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span class="ticker-blue">Explore Our Digital Services.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Build Skills. Grow Your Business.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+        <span>Discover Courses and Digital Products.</span>
+        <span class="ticker-dot">&nbsp;•&nbsp;</span>
+      </span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ========================================================================
+         PAGE HERO
+         ======================================================================== -->
+    <section class="courses-hero">
+      <div class="container">
+        <span class="hero-eyebrow">ACADEMY &bull; SKILL DEVELOPMENT</span>
+        <h1>Professional Courses &amp; Training Programs</h1>
+        <p class="hero-subtitle">Curriculum designed for real practical competence, guided by experienced practitioners.</p>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         COURSES SECTION
+         ======================================================================== -->
+    <section class="odoo-section-wrapper" id="courses" style="padding: 5rem 1rem; background: var(--bg-main);">
+      <div class="container" style="max-width: 1200px; margin: 0 auto;">
+
+        <!-- Section Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem;">
+          <div>
+            <span class="section-eyebrow">PAK IGNITERS ACADEMY</span>
+            <h2 class="section-title odoo-editable" style="font-size: 2.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.4rem;">
+              Professional Courses &amp; Training Programs
+            </h2>
+            <p class="section-subtitle odoo-editable" style="color: #94A3B8;">
+              Curriculum designed for real practical competence, guided by experienced practitioners.
+            </p>
+          </div>
+          <a href="contact.html" class="btn btn-secondary" style="font-size: 0.85rem;">Inquire for Admissions &rarr;</a>
+        </div>
+
+        <div class="courses-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.5rem;">
+
+          <!-- Course 1 -->
+          <div class="course-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: 12px; display: flex; flex-direction: column;">
+            <span style="align-self: flex-start; font-size: 0.72rem; font-weight: 700; color: var(--color-brand-cyan); background: rgba(40,120,185,0.18); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">Upcoming Cohort</span>
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">📈</div>
+            <h3 class="course-title odoo-editable" style="color: #FFFFFF; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Digital Marketing &amp; Meta Ads</h3>
+            <p style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">Comprehensive training in performance ads, campaign structuring, pixel tracking, and client reporting.</p>
+            <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="font-size: 0.82rem; color: var(--color-brand-gold); font-weight: 600;">Details on Request</span>
+              <a href="contact.html" class="btn btn-secondary" style="font-size: 0.85rem;">Inquire &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="course-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: 12px; display: flex; flex-direction: column;">
+            <span style="align-self: flex-start; font-size: 0.72rem; font-weight: 700; color: #24B47E; background: rgba(36,180,126,0.18); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">Upcoming Cohort</span>
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🤖</div>
+            <h3 class="course-title odoo-editable" style="color: #FFFFFF; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">AI Tools for Productivity &amp; Content</h3>
+            <p style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">Practical prompt engineering, automated workflows, and generative tools for professional workplace efficiency.</p>
+            <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="font-size: 0.82rem; color: var(--color-brand-gold); font-weight: 600;">Details on Request</span>
+              <a href="contact.html" class="btn btn-secondary" style="font-size: 0.85rem;">Inquire &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="course-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: 12px; display: flex; flex-direction: column;">
+            <span style="align-self: flex-start; font-size: 0.72rem; font-weight: 700; color: var(--color-brand-gold); background: rgba(242,181,68,0.18); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">Upcoming Cohort</span>
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🛒</div>
+            <h3 class="course-title odoo-editable" style="color: #FFFFFF; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">E-Commerce &amp; Store Operations</h3>
+            <p style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">Hands-on store launching, sourcing fundamentals, marketplace operations, and order lifecycle management.</p>
+            <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="font-size: 0.82rem; color: var(--color-brand-gold); font-weight: 600;">Details on Request</span>
+              <a href="contact.html" class="btn btn-secondary" style="font-size: 0.85rem;">Inquire &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="course-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.75rem; border-radius: 12px; display: flex; flex-direction: column;">
+            <span style="align-self: flex-start; font-size: 0.72rem; font-weight: 700; color: #8B78E6; background: rgba(139,120,230,0.18); padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">Upcoming Cohort</span>
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">💻</div>
+            <h3 class="course-title odoo-editable" style="color: #FFFFFF; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Web Development &amp; WordPress</h3>
+            <p style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">Designing responsive modern websites, theme configuration, security practices, and live client deployment.</p>
+            <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="font-size: 0.82rem; color: var(--color-brand-gold); font-weight: 600;">Details on Request</span>
+              <a href="contact.html" class="btn btn-secondary" style="font-size: 0.85rem;">Inquire &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         WHY LEARN WITH US
+         ======================================================================== -->
+    <section class="odoo-section-wrapper" style="padding: 5rem 1rem; background: var(--bg-main); border-top: 1px solid var(--border-color);">
+      <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="section-eyebrow">OUR ADVANTAGE</span>
+          <h2 style="font-size: 2.1rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Why Learn With Us?</h2>
+          <p style="color: #94A3B8; font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+            Everything we teach is grounded in real execution — not theory alone.
+          </p>
+        </div>
+
+        <div class="why-grid">
+
+          <!-- Card 1 -->
+          <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>Practical Curriculum</h3>
+            <p>Real projects, live mentorship, and industry-relevant tools that prepare you for the professional world from day one.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="why-card">
+            <div class="why-icon">👨‍🏫</div>
+            <h3>Expert Instructors</h3>
+            <p>Practitioners with real client experience who bring proven methods, case studies, and in-field know-how into every session.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="why-card">
+            <div class="why-icon">📜</div>
+            <h3>Verified Completion</h3>
+            <p>Certificate upon successful course completion — a credential that reflects genuine competence and dedication.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CTA SECTION
+         ======================================================================== -->
+    <section class="odoo-section-wrapper" style="padding: 5rem 1rem; background: var(--bg-surface); text-align: center; border-top: 1px solid var(--border-color);">
+      <div class="container" style="max-width: 700px; margin: 0 auto;">
+        <span class="section-eyebrow">ENROLMENT OPEN</span>
+        <h2 style="font-size: 2.4rem; font-weight: 900; color: #FFFFFF; margin-bottom: 1rem; line-height: 1.2;">
+          Ready to Enroll?
+        </h2>
+        <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+          Take the next step in your professional journey. Our admissions team is ready to guide you through the right course for your goals.
+        </p>
+        <a href="contact.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.85rem 2.2rem;">
+          Apply for Admission &rarr;
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       AI Chatbot Floating Widget
+       ======================================================================== -->
+  <div class="chat-btn-container">
+    <button class="chat-trigger-btn" id="chatTriggerBtn" aria-label="Open AI Assistant">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+      </svg>
+      <span data-i18n="chatbot.triggerTitle">Chat with AI</span>
+    </button>
+  </div>
+
+  <!-- Chatbot Window -->
+  <div class="chat-window" id="chatWindow" role="dialog" aria-labelledby="chatHeaderTitle">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">AI</div>
+        <div class="chat-title-group">
+          <h4 id="chatHeaderTitle" data-i18n="chatbot.windowHeader">Igniter AI Assistant</h4>
+          <div class="chat-status">
+            <span class="chat-status-dot"></span>
+            <span data-i18n="chatbot.onlineStatus">Online &bull; Ready to Help</span>
+          </div>
+        </div>
+      </div>
+      <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close Chat">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Messages History -->
+    <div class="chat-body" id="chatMessages">
+      <div class="chat-bubble bot" data-i18n="chatbot.greeting">
+        Salam &amp; Welcome to PAK IGNITERS! I am your AI assistant. How can I help you explore our services, popular courses, digital products, or leadership team today?
+      </div>
+
+      <!-- Quick Suggestion Chips -->
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-chip">What courses are available?</button>
+        <button class="suggestion-chip">Tell me about Digital Marketing</button>
+        <button class="suggestion-chip">How does E-Commerce support work?</button>
+        <button class="suggestion-chip">Who leads PAK IGNITERS?</button>
+      </div>
+    </div>
+
+    <!-- Chat Footer Input -->
+    <div class="chat-footer">
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your question here..." data-i18n="chatbot.inputPlaceholder">
+        <button class="chat-send-btn" id="chatSendBtn" aria-label="Send Message">
+          <svg viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Site Footer
+       ======================================================================== -->
+  <footer class="site-footer odoo-section-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS Logo" class="footer-brand-logo">
+          <p style="font-size: 0.88rem; line-height: 1.6;" data-i18n="footer.aboutText">
+            PAK IGNITERS is an integrated ecosystem dedicated to elevating Pakistan's technological, creative, and entrepreneurial talents through structured divisions, real-world execution, and collaborative mentorship.
+          </p>
+
+          <!-- Official Social Media Icons -->
+          <div class="footer-social-row">
+            <a href="https://www.facebook.com/pakigniters" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/p/DfXXrH6FuLS/?img_index=4&obrf=MXZjNmcwbWxldjI3Ng==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.divisionsHeading">Our Divisions</h5>
+          <ul class="footer-links">
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Digital</a></li>
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Commerce</a></li>
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Web Studio</a></li>
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Academy</a></li>
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Leadership</a></li>
+            <li><a href="divisions.html" class="footer-link">Pak Igniters Business Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.quickLinksHeading">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Our Services</a></li>
+            <li><a href="courses.html" class="footer-link">Courses &amp; Training</a></li>
+            <li><a href="products.html" class="footer-link">Digital Products</a></li>
+            <li><a href="privacy.html" class="footer-link" style="color: var(--color-brand-cyan);">Privacy Policy</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+923082481481" class="footer-link">📞 +92 308 2 481 481</a></li>
+            <li><a href="https://wa.me/923082481481" target="_blank" rel="noopener noreferrer" class="footer-link">💬 WhatsApp Helpline</a></li>
+            <li><a href="mailto:info.pakigniters@gmail.com" class="footer-link">✉️ info.pakigniters@gmail.com</a></li>
+            <li><span style="font-size: 0.82rem; color: var(--text-muted);">Main Desk: Pakistan &bull; Serving Globally</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential.</span>
+        <span>Learn. Create. Earn. Lead. &bull; <a href="privacy.html" style="color: var(--color-brand-gold);">Privacy Policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Modules -->
+  <script src="js/content-data.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/visual-editor.js"></script>
+
+</body>
+</html>
