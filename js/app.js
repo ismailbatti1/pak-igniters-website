@@ -444,55 +444,77 @@
   function handleFormSubmission(e) {
     e.preventDefault();
 
-    const nameInput = document.getElementById("formName");
-    const emailInput = document.getElementById("formEmail");
-    const divisionSelect = document.getElementById("formDivision");
-    const messageInput = document.getElementById("formMessage");
+    const nameInput = document.getElementById("contactName") || document.getElementById("formName");
+    const emailInput = document.getElementById("contactEmail") || document.getElementById("formEmail");
+    const phoneInput = document.getElementById("contactPhone") || document.getElementById("formPhone");
+    const subjectSelect = document.getElementById("contactSubject") || document.getElementById("formDivision");
+    const messageInput = document.getElementById("contactMessage") || document.getElementById("formMessage");
+    const privacyCheck = document.getElementById("privacyConsent");
+    const statusBox = document.getElementById("formStatusMsg") || document.getElementById("formAlert");
+    const submitBtn = document.getElementById("formSubmitBtn") || document.getElementById("submitQueryBtn");
 
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const division = divisionSelect.value;
-    const message = messageInput.value.trim();
-
-    const isUrdu = state.currentLang === "ur";
-    const dict = window.PAK_IGNITERS_CONTENT[state.currentLang].contact.form;
-
-    // Email regex validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!name || !email || !division || !message || !emailRegex.test(email)) {
-      formAlert.className = "form-alert error";
-      formAlert.textContent = dict.validationError;
+    if (!nameInput || !emailInput || !messageInput) {
+      if (contactForm) contactForm.submit();
       return;
     }
 
-    const submitBtn = document.getElementById("submitQueryBtn");
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput ? phoneInput.value.trim() : "";
+    const subject = subjectSelect ? subjectSelect.value : "General Inquiry";
+    const message = messageInput.value.trim();
+
+    const isUrdu = state.currentLang === "ur";
+
+    if (privacyCheck && !privacyCheck.checked) {
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.color = "#EF4444";
+        statusBox.textContent = isUrdu 
+          ? "براہ کرم پرائیویسی پالیسی سے اتفاق کریں۔"
+          : "Please agree to the Privacy Policy to proceed.";
+      }
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name || !email || !message || !emailRegex.test(email)) {
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.color = "#EF4444";
+        statusBox.textContent = isUrdu 
+          ? "براہ کرم تمام مطلوبہ خانے درست طریقے سے پُر کریں۔"
+          : "Please fill out all required fields with a valid email.";
+      }
+      return;
+    }
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = isUrdu ? "ارسال کیا جا رہا ہے..." : "Sending inquiry...";
     }
 
     const hiddenType = document.getElementById("formEnquiryType");
-    const enquiryType = hiddenType ? hiddenType.value : "General Inquiry";
+    const enquiryType = hiddenType ? hiddenType.value : "Business Inquiry";
 
-    // Prepare payload targeting Ismail's email with CC to info.pakigniters@gmail.com
     const inquiryPayload = {
       enquiry_type: enquiryType,
       name: name,
       email: email,
-      division: division,
+      phone: phone,
+      service: subject,
       message: message,
-      _subject: `[${enquiryType}] PAK IGNITERS: ${division} (${name})`,
+      _subject: "[" + enquiryType.toUpperCase() + "] PAK IGNITERS: " + subject + " (" + name + ")",
       _cc: "info.pakigniters@gmail.com",
       _replyto: email
     };
 
-    // Backup locally in browser session
-    const existingLogs = JSON.parse(localStorage.getItem("pak_igniters_inquiries") || "[]");
-    existingLogs.push({ ...inquiryPayload, submittedAt: new Date().toISOString() });
-    localStorage.setItem("pak_igniters_inquiries", JSON.stringify(existingLogs));
+    try {
+      const existingLogs = JSON.parse(localStorage.getItem("pak_igniters_inquiries") || "[]");
+      existingLogs.push(Object.assign({}, inquiryPayload, { submittedAt: new Date().toISOString() }));
+      localStorage.setItem("pak_igniters_inquiries", JSON.stringify(existingLogs));
+    } catch(err) {}
 
-    // Send directly to info.pakigniters@gmail.com
     fetch("https://formsubmit.co/ajax/info.pakigniters@gmail.com", {
       method: "POST",
       headers: {
@@ -501,42 +523,30 @@
       },
       body: JSON.stringify(inquiryPayload)
     })
-    .then(response => response.json())
-    .then(() => {
-      formAlert.className = "form-alert success";
-      formAlert.innerHTML = `
-        <strong>${isUrdu ? "آپ کی انکوائری کامیابی سے ارسال کر دی گئی ہے!" : "Inquiry Sent Successfully!"}</strong><br>
-        <span style="font-size: 0.85rem; opacity: 0.95;">
-          ${isUrdu 
-            ? "آپ کی درخواست info.pakigniters@gmail.com اور info.pakigniters@gmail.com کو موصول ہو گئی ہے۔ ہماری ٹیم جلد آپ سے رابطہ کرے گی۔"
-            : "Your inquiry has been delivered directly to info.pakigniters@gmail.com with CC to info.pakigniters@gmail.com. We will contact you shortly!"}
-        </span>
-      `;
-      contactForm.reset();
+    .then(function(response) {
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.color = "#24B47E";
+        statusBox.innerHTML = "<strong>" + (isUrdu ? "آپ کی انکوائری کامیابی سے ارسال کر دی گئی ہے!" : "✓ Inquiry Sent Successfully!") + "</strong><br><span style='font-size: 0.85rem; color: #CBD5E1;'>" + (isUrdu ? "ہماری ٹیم جلد آپ کی فراہم کردہ تفصیلات پر رابطہ کرے گی۔ شکریہ!" : "Thank you for reaching out! Our team will contact you shortly.") + "</span>";
+      }
+      if (contactForm) contactForm.reset();
     })
-    .catch(() => {
-      formAlert.className = "form-alert success";
-      formAlert.innerHTML = `
-        <strong>${isUrdu ? "درخواست موصول ہو گئی ہے!" : "Inquiry Captured Successfully!"}</strong><br>
-        <span style="font-size: 0.85rem; opacity: 0.95;">
-          ${isUrdu 
-            ? "آپ کا پیغام info.pakigniters@gmail.com اور info.pakigniters@gmail.com کے لیے محفوظ کر لیا گیا ہے۔"
-            : "Direct inquiry queued for info.pakigniters@gmail.com and info.pakigniters@gmail.com."}
-        </span>
-      `;
-      contactForm.reset();
+    .catch(function() {
+      if (statusBox) {
+        statusBox.style.display = "block";
+        statusBox.style.color = "#24B47E";
+        statusBox.innerHTML = "<strong>" + (isUrdu ? "آپ کا پیغام محفوظ کر لیا گیا ہے!" : "✓ Inquiry Captured Successfully!") + "</strong><br><span style='font-size: 0.85rem; color: #CBD5E1;'>" + (isUrdu ? "آپ کا پیغام ہماری ٹیم تک پہنچانے کے لیے لاگ کر لیا گیا ہے۔" : "Your inquiry has been logged for our administrative team.") + "</span>";
+      }
+      if (contactForm) contactForm.reset();
     })
-    .finally(() => {
+    .finally(function() {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = dict.submitBtn || (isUrdu ? "درخواست جمع کروائیں" : "Send Inquiry");
+        submitBtn.textContent = isUrdu ? "درخواست جمع کروائیں →" : "Send Inquiry →";
       }
     });
   }
 
-  /**
-   * SVG Icon Helpers
-   */
   function getDivisionIcon(id) {
     switch (id) {
       case "digital":

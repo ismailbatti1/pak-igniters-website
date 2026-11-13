@@ -174,76 +174,99 @@ html[dir="rtl"] .chat-bubble.user {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Top Announcement Bar (Phone & Email details only) */
+/* Top Moving Ticker Bar (Phone, WhatsApp, Email & Live Status) */
 .top-announcement-bar {
-  background: rgba(13, 30, 52, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.45rem 0;
+  background: linear-gradient(90deg, #0A1627 0%, #102644 50%, #0A1627 100%);
+  border-bottom: 1px solid rgba(242, 181, 68, 0.25);
+  padding: 0.35rem 0;
   font-size: 0.82rem;
   letter-spacing: 0.02em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
-.top-announcement-content {
+.top-ticker-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.25rem;
-  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
 }
 
-@media (max-width: 768px) {
-  .top-announcement-content {
-    justify-content: center;
-    gap: 0.75rem;
-    font-size: 0.75rem;
-  }
+.top-ticker-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: topMarqueeRight 35s linear infinite;
+  will-change: transform;
 }
 
-.announcement-pill {
+.top-announcement-bar:hover .top-ticker-track {
+  animation-play-state: paused;
+}
+
+.top-ticker-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  color: var(--color-accent-gold);
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  color: #FFFFFF;
+}
+
+.top-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(36, 180, 126, 0.18);
+  border: 1px solid rgba(36, 180, 126, 0.4);
+  color: #24B47E;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.pill-dot {
+.top-live-dot {
   width: 6px;
   height: 6px;
-  background: var(--color-accent-gold);
+  background: #24B47E;
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--color-accent-gold);
-  animation: pulseAnimation 2s infinite;
+  box-shadow: 0 0 8px #24B47E;
+  animation: pulseAnimation 1.5s infinite;
 }
 
-.announcement-sep {
-  color: var(--text-muted);
-}
-
-.announcement-sub {
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.top-contact-link {
+.top-ticker-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  color: var(--text-primary);
+  gap: 0.4rem;
+  color: #FFFFFF;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: var(--transition);
 }
 
-.top-contact-link:hover {
-  color: var(--color-accent-gold);
+.top-ticker-link:hover {
+  color: var(--color-brand-gold);
 }
 
-.top-link-icon {
-  width: 13px;
-  height: 13px;
-  fill: var(--color-accent-gold);
+.top-ticker-link.whatsapp {
+  color: #25D366;
+}
+
+.top-ticker-link.whatsapp:hover {
+  color: #3bf17e;
+}
+
+.top-ticker-sep {
+  color: rgba(242, 181, 68, 0.5);
+  font-weight: bold;
+}
+
+@keyframes topMarqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 /* Nav Bar Wrapper */
