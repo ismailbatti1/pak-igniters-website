@@ -192,18 +192,34 @@
       });
     }
 
+    
     if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener("click", () => {
+      mobileMenuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         navMenu.classList.toggle("show");
+        const isOpen = navMenu.classList.contains("show");
+        mobileMenuBtn.setAttribute("aria-expanded", isOpen);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (navMenu.classList.contains("show") && !navMenu.contains(e.target) && e.target !== mobileMenuBtn && !mobileMenuBtn.contains(e.target)) {
+          navMenu.classList.remove("show");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+        }
       });
     }
 
-    // Close mobile menu on link click
-    document.querySelectorAll(".nav-link").forEach(link => {
+    // Close mobile menu on link or CTA click
+    document.querySelectorAll(".nav-link, .mobile-drawer-cta .btn").forEach(link => {
       link.addEventListener("click", () => {
-        if (navMenu) navMenu.classList.remove("show");
+        if (navMenu) {
+          navMenu.classList.remove("show");
+          if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", "false");
+        }
       });
     });
+
 
     // Header scroll background change
     window.addEventListener("scroll", () => {
@@ -476,8 +492,8 @@
     existingLogs.push({ ...inquiryPayload, submittedAt: new Date().toISOString() });
     localStorage.setItem("pak_igniters_inquiries", JSON.stringify(existingLogs));
 
-    // Send directly to ismail137see@gmail.com
-    fetch("https://formsubmit.co/ajax/ismail137see@gmail.com", {
+    // Send directly to info.pakigniters@gmail.com
+    fetch("https://formsubmit.co/ajax/info.pakigniters@gmail.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -492,8 +508,8 @@
         <strong>${isUrdu ? "آپ کی انکوائری کامیابی سے ارسال کر دی گئی ہے!" : "Inquiry Sent Successfully!"}</strong><br>
         <span style="font-size: 0.85rem; opacity: 0.95;">
           ${isUrdu 
-            ? "آپ کی درخواست ismail137see@gmail.com اور info.pakigniters@gmail.com کو موصول ہو گئی ہے۔ ہماری ٹیم جلد آپ سے رابطہ کرے گی۔"
-            : "Your inquiry has been delivered directly to ismail137see@gmail.com with CC to info.pakigniters@gmail.com. We will contact you shortly!"}
+            ? "آپ کی درخواست info.pakigniters@gmail.com اور info.pakigniters@gmail.com کو موصول ہو گئی ہے۔ ہماری ٹیم جلد آپ سے رابطہ کرے گی۔"
+            : "Your inquiry has been delivered directly to info.pakigniters@gmail.com with CC to info.pakigniters@gmail.com. We will contact you shortly!"}
         </span>
       `;
       contactForm.reset();
@@ -504,8 +520,8 @@
         <strong>${isUrdu ? "درخواست موصول ہو گئی ہے!" : "Inquiry Captured Successfully!"}</strong><br>
         <span style="font-size: 0.85rem; opacity: 0.95;">
           ${isUrdu 
-            ? "آپ کا پیغام ismail137see@gmail.com اور info.pakigniters@gmail.com کے لیے محفوظ کر لیا گیا ہے۔"
-            : "Direct inquiry queued for ismail137see@gmail.com and info.pakigniters@gmail.com."}
+            ? "آپ کا پیغام info.pakigniters@gmail.com اور info.pakigniters@gmail.com کے لیے محفوظ کر لیا گیا ہے۔"
+            : "Direct inquiry queued for info.pakigniters@gmail.com and info.pakigniters@gmail.com."}
         </span>
       `;
       contactForm.reset();

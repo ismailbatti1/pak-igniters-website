@@ -46,8 +46,8 @@
     },
     {
       keywords: ["contact", "hire", "join", "email", "phone", "number", "whatsapp", "gmail", "help", "رابطہ", "فون", "میسج", "نمبر", "ای میل"],
-      en: "You can reach PAK IGNITERS directly at:\n📞 Phone / WhatsApp: +92 308 2 481 481\n✉️ Official Email: info.pakigniters@gmail.com\nAll web inquiries are monitored by our technical desk at ismail137see@gmail.com. You can also send a direct message via our website contact form or chat on WhatsApp!",
-      ur: "آپ پاک اگنائٹرز سے براہ راست رابطہ کر سکتے ہیں:\n📞 فون / واٹس ایپ: +92 308 2 481 481\n✉️ باضابطہ ای میل: info.pakigniters@gmail.com\nتمام استفسارات براہ راست ہماری ٹیم اور ismail137see@gmail.com تک پہنچتے ہیں۔ آپ نیچے دیے گئے فارم سے میسج کر سکتے ہیں یا واٹس ایپ پر رابطہ کر سکتے ہیں!"
+      en: "You can reach PAK IGNITERS directly at:\n📞 Phone / WhatsApp: +92 308 2 481 481\n✉️ Official Email: info.pakigniters@gmail.com\nAll web inquiries are monitored directly by our official inquiries desk. You can also send a direct message via our website contact form or chat on WhatsApp!",
+      ur: "آپ پاک اگنائٹرز سے براہ راست رابطہ کر سکتے ہیں:\n📞 فون / واٹس ایپ: +92 308 2 481 481\n✉️ باضابطہ ای میل: info.pakigniters@gmail.com\nتمام استفسارات براہ راست ہماری انتظامی ٹیم تک پہنچتے ہیں۔ آپ نیچے دیے گئے فارم سے میسج کر سکتے ہیں یا واٹس ایپ پر رابطہ کر سکتے ہیں!"
     }
   ];
 

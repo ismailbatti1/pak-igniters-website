@@ -5,67 +5,80 @@
    ========================================================================== */
 
 :root {
-  /* Approved Brand Color Palette (Official Brief Nov 2026) */
-  --color-brand-midnight: #101D35;    /* Midnight Navy - Primary Brand Color */
-  --color-brand-cyan: #20BCEB;        /* Electric Cyan - Technology Accent */
-  --color-brand-gold: #D6A84F;        /* Premium Gold - Premium Accent */
+  /* Approved Brand Color Palette (Confirmed Official Colors) */
+  --color-brand-midnight: #142D4E;    /* Navy - Primary Brand Foundation */
+  --color-brand-cyan: #2878B9;        /* Blue - Primary Brand Accent */
+  --color-brand-gold: #F2B544;        /* Gold - Premium Accent */
   --color-brand-white: #FFFFFF;       /* Neutral White */
-  --color-brand-ice: #F2F5F9;         /* Ice Grey - Light Background */
-  --color-brand-charcoal: #26364B;    /* Slate Charcoal - Body / Secondary Text */
+  --color-brand-ice: #F4F6F9;         /* Light Grey Background */
+  --color-brand-charcoal: #26364B;    /* Slate Charcoal */
 
   /* Division Accent Colors (Controlled Highlights) */
-  --color-div-digital: #20BCEB;       /* Division 01 Digital - Electric Cyan */
+  --color-div-digital: #2878B9;       /* Division 01 Digital - Blue */
   --color-div-commerce: #24B47E;      /* Division 02 Commerce - Emerald Green */
   --color-div-webstudio: #8B78E6;     /* Division 03 Web Studio - Royal Violet */
-  --color-div-academy: #D6A84F;       /* Division 04 Academy - Premium Gold */
+  --color-div-academy: #F2B544;       /* Division 04 Academy - Brand Gold */
   --color-div-leadership: #E47B62;    /* Division 05 Leadership - Warm Coral */
   --color-div-business: #3974C6;      /* Division 06 Business Solutions - Executive Blue */
 
   /* System UI Color Mappings */
-  --color-primary: #101D35;           /* Midnight Navy */
-  --color-primary-dark: #0A1324;      /* Deep Midnight */
-  --color-primary-light: #20BCEB;     /* Electric Cyan */
-  --color-accent-gold: #D6A84F;       /* Premium Gold */
-  --color-accent-flame: #EF4444;      /* Spark Accent */
+  --color-primary: #142D4E;           /* Navy */
+  --color-primary-dark: #0D1E34;      /* Deep Midnight Navy */
+  --color-primary-light: #2878B9;     /* Brand Blue */
+  --color-accent-gold: #F2B544;       /* Brand Gold */
+  --color-accent-flame: #EF4444;      /* Spark Red */
   
   /* Neutral Theme Foundations */
-  --bg-main: #101D35;                 /* Midnight Navy Primary Background */
-  --bg-surface: #172644;              /* Midnight Surface Card */
-  --bg-surface-elevated: #1E3156;     /* Elevated Card Surface */
+  --bg-main: #142D4E;                 /* Navy Primary Background */
+  --bg-surface: #1B3860;              /* Navy Surface Card */
+  --bg-surface-elevated: #24487A;     /* Elevated Card Surface */
   --border-color: rgba(255, 255, 255, 0.12);
-  --border-accent: rgba(32, 188, 235, 0.35);
+  --border-accent: rgba(40, 120, 185, 0.4);
 
   /* Typography Colors */
   --text-primary: #FFFFFF;
   --text-secondary: #CBD5E1;
   --text-muted: #94A3B8;
-  --text-highlight: #D6A84F;
+  --text-highlight: #F2B544;
 
-  /* Typography Families (Montserrat for Headings, Inter for Body, Noto Nastaliq Urdu for Urdu) */
+  /* Typography Families */
   --font-en: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Montserrat', 'Inter', sans-serif;
   --font-ur: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', Tahoma, sans-serif;
 
   /* Layout Spacing */
   --max-width: 1200px;
-  --top-bar-height: 32px;
-  --nav-height: 68px;
-  --header-total-height: 100px;
+  --top-bar-height: 38px;
+  --nav-height: 72px;
+  --header-total-height: 110px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-full: 9999px;
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 25px rgba(10, 155, 103, 0.25);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 25px rgba(40, 120, 185, 0.3);
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base Reset & Box Sizing */
+/* Base Reset & Overflow Prevention */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* Modern clean overflow prevention that preserves sticky/fixed elements */
+  position: relative;
+}
+
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 html {
@@ -161,22 +174,29 @@ html[dir="rtl"] .chat-bubble.user {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Top Announcement Tagline Bar (Highest bar on screen) */
+/* Top Announcement Bar (Phone & Email details only) */
 .top-announcement-bar {
-  background: rgba(0, 112, 74, 0.25);
-  border-bottom: 1px solid rgba(10, 155, 103, 0.28);
-  padding: 0.35rem 0;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-align: center;
+  background: rgba(13, 30, 52, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.45rem 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .top-announcement-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
+  justify-content: flex-end;
+  gap: 1.25rem;
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .top-announcement-content {
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+  }
 }
 
 .announcement-pill {
@@ -288,33 +308,18 @@ html[dir="rtl"] .chat-bubble.user {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.35rem;
   list-style: none;
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   transition: var(--transition);
   position: relative;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: #FFFFFF;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--color-accent-gold);
-  transform: scaleX(0);
-  transition: var(--transition);
+  white-space: nowrap; /* Keep items readable on one line without awkward wrapping */
 }
 
 .nav-link:hover::after {
@@ -1309,8 +1314,9 @@ textarea.form-control {
 }
 
 .footer-col h5 {
-  font-size: 1rem;
-  color: #FFFFFF;
+  color: #F2B544; /* Official Brand Gold */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   margin-bottom: 1.2rem;
   font-weight: 700;
 }
@@ -1541,36 +1547,46 @@ textarea.form-control {
    OFFICIAL BRAND & SITEMAP EXPANSIONS (Nov 2026 Brief)
    ========================================================================== */
 
-/* Full Official Logo Picture (Portrait of CEO + Flame + Typography) */
+/* Full Official Logo Picture (Speaker Illustration, Flame, Typography) */
 .brand-official-logo {
-  height: 52px;
+  height: 56px;
   width: auto;
-  max-width: 190px;
+  max-width: 240px;
   object-fit: contain;
-  background: #FFFFFF;
-  padding: 3px 8px;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .brand-official-logo:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
 .footer-brand-logo {
-  height: 64px;
+  height: 72px;
   width: auto;
-  max-width: 220px;
+  max-width: 260px;
   object-fit: contain;
-  background: #FFFFFF;
-  padding: 4px 10px;
-  border-radius: 10px;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   display: block;
   margin-bottom: 1.25rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 768px) {
+  .brand-official-logo {
+    height: 46px;
+    max-width: 190px;
+  }
+  .footer-brand-logo {
+    height: 60px;
+    max-width: 220px;
+  }
 }
 
 /* Section Eyebrow Pills */
@@ -1824,3 +1840,279 @@ textarea.form-control {
   color: #94A3B8;
 }
 
+
+
+/* ==========================================================================
+   Moving Tagline Announcement Strip ("Learn. Create. Earn. Lead.")
+   ========================================================================== */
+.moving-tagline-bar {
+  background: linear-gradient(90deg, #142D4E 0%, #1E3E6B 50%, #142D4E 100%);
+  border-top: 1px solid rgba(242, 181, 68, 0.3);
+  border-bottom: 1px solid rgba(242, 181, 68, 0.3);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 0.55rem 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.moving-ticker-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: marqueeTicker 28s linear infinite;
+  will-change: transform;
+}
+
+.moving-tagline-bar:hover .moving-ticker-track {
+  animation-play-state: paused;
+}
+
+.moving-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.moving-ticker-item .ticker-gold {
+  color: #F2B544;
+}
+
+.moving-ticker-item .ticker-blue {
+  color: #2878B9;
+}
+
+.moving-ticker-item .ticker-dot {
+  color: #F2B544;
+  font-size: 1.1rem;
+}
+
+@keyframes marqueeTicker {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+html[dir="rtl"] .moving-ticker-track {
+  animation: marqueeTickerRtl 28s linear infinite;
+}
+
+@keyframes marqueeTickerRtl {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
+
+/* Footer Social Media Icons */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-icon-btn:hover {
+  background: var(--color-brand-cyan);
+  color: #142D4E;
+  border-color: var(--color-brand-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 120, 185, 0.4);
+}
+
+.social-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS & OVERFLOW FIXES (320px - 768px)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: var(--header-total-height);
+    left: 0;
+    right: 0;
+    background: #142D4E;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+    border-bottom: 2px solid var(--color-brand-cyan);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65);
+    transform: translateY(-160%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease;
+    max-height: calc(100vh - var(--header-total-height));
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .nav-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    padding: 0.6rem 0.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 60px;
+    --header-total-height: 96px;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .section-header {
+    margin-bottom: 2rem !important;
+    padding: 0 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-headline {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-supporting {
+    font-size: 1.1rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Universal grid override: prevent fixed-pixel column blowouts on 320px-480px screens */
+  .divisions-grid,
+  .courses-grid,
+  .products-grid,
+  .portfolio-grid,
+  .process-grid,
+  .team-grid,
+  .testimonials-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .division-card,
+  .course-card,
+  .product-card,
+  .portfolio-item-card,
+  .process-step-card,
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.5rem 1.15rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Two column form rows collapse to single column */
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  /* Floating AI chatbot responsive bounds */
+  .chat-btn-container {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  html[dir="rtl"] .chat-btn-container {
+    right: auto !important;
+    left: 16px !important;
+  }
+
+  .chat-trigger-btn {
+    padding: 0.65rem 1.1rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .chat-window {
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    bottom: 74px !important;
+    height: 480px !important;
+  }
+
+  html[dir="rtl"] .chat-window {
+    right: 12px !important;
+    left: 12px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-headline {
+    font-size: 1.7rem !important;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}

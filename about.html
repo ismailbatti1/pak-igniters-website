@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About PAK IGNITERS - Empowering Pakistan's youth and enterprises through digital technology, creative web development, and practical leadership.">
-  <title>About Us | PAK IGNITERS - Mission, Vision & Leadership</title>
+  <title>About Us | PAK IGNITERS - Mission, Vision &amp; Leadership</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter, Montserrat, Noto Nastaliq Urdu -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/visual-editor.css">
@@ -21,50 +21,86 @@
   <header class="site-header" id="siteHeader">
     <div class="top-announcement-bar">
       <div class="container top-announcement-content">
-        <span class="announcement-pill">
-          <span class="pill-dot"></span>
-          <span>Unlock Your Potential</span>
-        </span>
+        <a href="tel:+923082481481" class="top-contact-link" title="Call Helpline">
+          <svg viewBox="0 0 24 24" class="top-link-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>+92 308 2 481 481</span>
+        </a>
         <span class="announcement-sep">•</span>
-        <span class="announcement-sub">Learn. Create. Earn. Lead.</span>
-        <span class="announcement-sep top-contact-hide-mobile">•</span>
-        <a href="tel:+923082481481" class="top-contact-link top-contact-hide-mobile" title="Call Us">
-          <span>📞 +92 308 2 481 481</span>
+        <a href="mailto:info.pakigniters@gmail.com" class="top-contact-link" title="Official Inquiries">
+          <svg viewBox="0 0 24 24" class="top-link-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info.pakigniters@gmail.com</span>
         </a>
       </div>
     </div>
 
     <div class="nav-bar-wrapper">
       <div class="container nav-container">
-        <a href="index.html" class="brand-wrapper">
-          <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS" class="brand-official-logo">
+        <a href="index.html" class="brand-wrapper" aria-label="PAK IGNITERS Home">
+          <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS - Unlock Your Potential" class="brand-official-logo">
         </a>
 
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link" style="color:var(--color-primary-light);">About Us</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="index.html#divisions" class="nav-link">Divisions</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Our Services</a></li>
+          <li><a href="index.html#courses" class="nav-link">Courses &amp; Training</a></li>
+          <li><a href="index.html#products" class="nav-link">Digital Products</a></li>
+          <li><a href="index.html#divisions" class="nav-link">6 Divisions</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li class="mobile-drawer-cta">
+            <a href="index.html#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get a Quote</a>
+          </li>
         </ul>
 
         <div class="nav-actions">
-          <a href="index.html#contact" class="btn btn-primary header-desktop-cta">Get in Touch</a>
+          <a href="index.html#contact" class="btn btn-primary header-desktop-cta">Get a Quote</a>
+          <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          </button>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- Moving Tagline Announcement Strip -->
+  <div class="moving-tagline-bar" aria-label="Announcement">
+    <div class="moving-ticker-track">
+      <div class="moving-ticker-item">
+        <span>Unlock Your Potential</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-gold">Learn. Create. Earn. Lead.</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-blue">PAK IGNITERS Master Brand</span>
+        <span class="ticker-dot">•</span>
+        <span>Six Specialized Divisions</span>
+        <span class="ticker-dot">•</span>
+      </div>
+      <div class="moving-ticker-item">
+        <span>Unlock Your Potential</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-gold">Learn. Create. Earn. Lead.</span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-blue">PAK IGNITERS Master Brand</span>
+        <span class="ticker-dot">•</span>
+        <span>Six Specialized Divisions</span>
+        <span class="ticker-dot">•</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
   <!-- Page Hero -->
-  <section class="hero-section odoo-section-wrapper" style="padding: 5rem 1rem 3.5rem 1rem; text-align: center; background: radial-gradient(circle at 50% 30%, #132238 0%, #0B1120 70%);">
+  <section class="hero-section odoo-section-wrapper" style="padding: 5rem 1rem 3.5rem 1rem; text-align: center; background: radial-gradient(circle at 50% 30%, #193860 0%, #142D4E 70%);">
     <div class="container hero-content">
-      <div class="hero-badge" style="display:inline-block; padding: 0.35rem 1rem; background: rgba(0,112,74,0.3); border:1px solid #10B981; border-radius:999px; color:#34D399; font-weight:700; margin-bottom:1.5rem;">
-        About PAK IGNITERS &bull; Our Story
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        <span>About PAK IGNITERS &bull; Our Story</span>
       </div>
       <h1 class="hero-headline odoo-editable" style="font-size: 2.8rem; font-weight: 800; color:#FFFFFF; margin-bottom: 1rem;">
         Igniting Innovation, Elevating Pakistan
       </h1>
-      <p class="hero-description odoo-editable" style="font-size: 1.15rem; color:#94A3B8; max-width: 750px; margin: 0 auto 2rem auto; line-height: 1.7;">
+      <p class="hero-description odoo-editable" style="font-size: 1.15rem; color:#CBD5E1; max-width: 750px; margin: 0 auto 2rem auto; line-height: 1.7;">
         PAK IGNITERS was founded with a singular conviction: to empower Pakistan's emerging creators, technologists, and entrepreneurs with the real-world skills, strategic guidance, and global connectivity needed to compete at the highest level.
       </p>
     </div>
@@ -72,8 +108,8 @@
 
   <!-- Mission & Vision 2-Column Split -->
   <section class="odoo-section-wrapper" style="padding: 4.5rem 1rem; background: var(--bg-surface);">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
-      <div style="background: var(--bg-surface-elevated); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 2.5rem;">
+      <div style="background: var(--bg-main); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
         <h2 class="odoo-editable" style="color: #FFFFFF; font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Our Official Vision</h2>
         <p class="odoo-editable" style="color: #CBD5E1; font-size: 1.05rem; line-height: 1.8;">
@@ -81,7 +117,7 @@
         </p>
       </div>
 
-      <div style="background: var(--bg-surface-elevated); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+      <div style="background: var(--bg-main); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
         <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
         <h2 class="odoo-editable" style="color: #FFFFFF; font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">Our Core Approach</h2>
         <p class="odoo-editable" style="color: #CBD5E1; font-size: 1.05rem; line-height: 1.8;">
@@ -95,144 +131,130 @@
   <section class="odoo-section-wrapper" style="padding: 5rem 1rem; background: var(--bg-main);">
     <div class="container" style="max-width: 1200px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 3rem;">
-        <span class="section-eyebrow" style="color: var(--color-brand-cyan); background: rgba(32,188,235,0.12); border-color: rgba(32,188,235,0.3);">GOVERNANCE &amp; ARCHITECTURE</span>
+        <span class="section-eyebrow">GOVERNANCE &amp; ARCHITECTURE</span>
         <h2 class="odoo-editable" style="font-size: 2.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Our Six Operating Divisions</h2>
         <p class="odoo-editable" style="color: #94A3B8; max-width: 750px; margin: 0 auto;">Each division functions as a specialized pillar under the Pak Igniters master brand.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #20BCEB;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid var(--color-brand-cyan);">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 01: Pak Igniters Digital</h3>
-          <span style="color: #20BCEB; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Digital Marketing &amp; Growth Services &bull; Lead: Mr. Saeed ul Hassan</span>
+          <span style="color: var(--color-brand-cyan); font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Digital Marketing &amp; Growth Services &bull; Growth Team</span>
           <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Performance-minded digital growth partner for businesses executing high-converting campaigns.</p>
         </div>
 
         <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #24B47E;">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 02: Pak Igniters Commerce</h3>
-          <span style="color: #24B47E; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">E-Commerce Store &amp; Marketplace Management &bull; Lead: Mr. Zaigham ullah</span>
+          <span style="color: #24B47E; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">E-Commerce Store &amp; Marketplace Management &bull; Operations Team</span>
           <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Disciplined operations for Amazon, eBay, Etsy, Shopify, and WooCommerce stores.</p>
         </div>
 
         <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #8B78E6;">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 03: Pak Igniters Web Studio</h3>
-          <span style="color: #8B78E6; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Web Development &amp; Creative Production &bull; Lead: Mr. Hamza</span>
+          <span style="color: #8B78E6; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Web Development &amp; Creative Production &bull; Tech Team</span>
           <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Fast websites, brand identities, UI/UX design, and multimedia production.</p>
         </div>
 
-        <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #D6A84F;">
+        <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid var(--color-brand-gold);">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 04: Pak Igniters Academy</h3>
-          <span style="color: #D6A84F; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Professional Skills &amp; Career Development &bull; Lead: Mr. Saeed ul Hassan</span>
-          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Practical learning where participants build portfolios and gain employment readiness.</p>
+          <span style="color: var(--color-brand-gold); font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Professional Skills &amp; Career Development &bull; Directorate</span>
+          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Hands-on training, live project cohorts, and practical digital mentorship.</p>
         </div>
 
         <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #E47B62;">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 05: Pak Igniters Leadership</h3>
-          <span style="color: #E47B62; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Teacher Development, Parenting &amp; Human Growth &bull; Lead: Miss Asma</span>
-          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Evidence-informed learning for educators, parents, youth, and organizational leaders.</p>
+          <span style="color: #E47B62; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Teacher Development, Parenting &amp; Human Growth</span>
+          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Institutional educator development, active classroom pedagogies, and positive parenting workshops.</p>
         </div>
 
         <div style="background: var(--bg-surface); padding: 1.8rem; border-radius: 12px; border: 1px solid var(--border-color); border-left: 4px solid #3974C6;">
           <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">Division 06: Pak Igniters Business Solutions</h3>
-          <span style="color: #3974C6; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Business Development &amp; Client Success &bull; Lead: Mirza Usman Ghani (CEO)</span>
-          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Commercial growth engine qualifying prospects, proposals, and corporate partnerships.</p>
+          <span style="color: #3974C6; font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Business Strategy, Automation &amp; Technology</span>
+          <p style="color: #94A3B8; font-size: 0.88rem; line-height: 1.6;">Enterprise digitization roadmaps, CRM workflows, chat funnels, and systems architecture.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Executive Leadership -->
-  <section class="odoo-section-wrapper" id="team" style="padding: 5rem 1rem; background: var(--bg-surface);">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 3.5rem;">
-        <span class="section-eyebrow" style="color: var(--color-brand-gold); background: rgba(214,168,79,0.12); border-color: rgba(214,168,79,0.3);">EXECUTIVE GOVERNANCE</span>
-        <h2 class="odoo-editable" style="font-size: 2.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Executive Leadership Team</h2>
-        <p class="odoo-editable" style="color: #94A3B8; font-size: 1rem;">Direct executive oversight driving strategic excellence across all operational units.</p>
+  <!-- Executive Leadership Feature -->
+  <section class="odoo-section-wrapper" style="padding: 5rem 1rem; background: var(--bg-surface);">
+    <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div style="width: 140px; height: 140px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem auto; border: 3px solid var(--color-brand-gold); background: var(--bg-main);">
+        <img src="assets/images/pak-igniters-official-logo.png" alt="Mirza Usman Ghani" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-        <div style="background: var(--bg-surface-elevated); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <img src="assets/images/pak-igniters-official-logo.png" alt="CEO Mirza Usman Ghani" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.25rem auto; border: 2px solid var(--color-brand-gold);">
-          <h3 class="odoo-editable" style="color: #FFFFFF; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">Mirza Usman Ghani</h3>
-          <span class="odoo-editable" style="color: var(--color-brand-gold); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">Chief Executive Officer (CEO) &bull; Founder</span>
-          <p class="odoo-editable" style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6;">Master brand architecture, governance, and institutional leadership across all divisions.</p>
-        </div>
-
-        <div style="background: var(--bg-surface-elevated); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--color-brand-cyan); color: #101D35; font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">I</div>
-          <h3 class="odoo-editable" style="color: #FFFFFF; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">Muhammad Ismail Bhatti</h3>
-          <span class="odoo-editable" style="color: var(--color-brand-cyan); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">Super Admin &bull; Executive Lead</span>
-          <p class="odoo-editable" style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6;">Technical oversight, CMS architecture, live deployments, and overall operations desk.</p>
-        </div>
-
-        <div style="background: var(--bg-surface-elevated); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: #24B47E; color: #101D35; font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">W</div>
-          <h3 class="odoo-editable" style="color: #FFFFFF; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">Wardah</h3>
-          <span class="odoo-editable" style="color: #24B47E; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">Website Developer &bull; WordPress Lead</span>
-          <p class="odoo-editable" style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6;">Jamstack architecture, WooCommerce store setup, headless CMS, and technical engineering.</p>
-        </div>
-
-        <div style="background: var(--bg-surface-elevated); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: #8B78E6; color: #101D35; font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">F</div>
-          <h3 class="odoo-editable" style="color: #FFFFFF; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">Farwa</h3>
-          <span class="odoo-editable" style="color: #8B78E6; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">Content Strategist &bull; SEO Specialist</span>
-          <p class="odoo-editable" style="color: #94A3B8; font-size: 0.85rem; line-height: 1.6;">Search visibility, bilingual localization, editorial campaigns, and brand consistency.</p>
-        </div>
-      </div>
+      <h3 class="odoo-editable" style="color: #FFFFFF; font-size: 1.6rem; font-weight: 800; margin-bottom: 0.4rem;">Mirza Usman Ghani</h3>
+      <div style="color: var(--color-brand-gold); font-size: 1rem; font-weight: 600; margin-bottom: 1.2rem;">Founder &amp; Chief Executive Officer</div>
+      <p style="font-size: 0.95rem; line-height: 1.7; color: #CBD5E1; max-width: 700px; margin: 0 auto 2rem auto;">
+        Providing visionary direction across all six operating divisions, championing market-driven digital education, and empowering ambitious youth and businesses across Pakistan.
+      </p>
+      <a href="index.html#contact" class="btn btn-primary" style="font-size: 0.95rem;">Connect with PAK IGNITERS &rarr;</a>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="odoo-section-wrapper" style="padding: 4.5rem 1rem; background: linear-gradient(135deg, #101D35, #172644); text-align: center; color: #FFFFFF; border-top: 1px solid var(--border-color);">
-    <div class="container" style="max-width: 900px; margin: 0 auto;">
-      <h2 class="odoo-editable" style="font-size: 2.3rem; font-weight: 800; margin-bottom: 0.75rem;">Collaborate With PAK IGNITERS</h2>
-      <p class="odoo-editable" style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem;">Ready to take your organization or career to the next tier? Let's connect today.</p>
-      <a href="index.html#contact" class="btn btn-primary odoo-editable" style="font-weight: 800; padding: 0.85rem 2rem; border-radius: 8px;">Contact Executive Team &rarr;</a>
-    </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-top">
-        <div class="footer-col brand-col">
-          <div class="footer-brand">
-            <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS" class="footer-brand-logo">
-          </div>
+  <!-- Site Footer -->
+  <footer class="site-footer odoo-section-wrapper">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/images/pak-igniters-official-logo.png" alt="PAK IGNITERS Logo" class="footer-brand-logo">
           <p style="font-size: 0.88rem; line-height: 1.6;">
-            Empowering youth, creators, and businesses across Pakistan through modern technology, e-commerce, and world-class education.
+            PAK IGNITERS is an integrated ecosystem dedicated to elevating Pakistan's technological, creative, and entrepreneurial talents through structured divisions, real-world execution, and collaborative mentorship.
           </p>
+          <div class="footer-social-row">
+            <a href="https://www.facebook.com/pakigniters" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/p/DfXXrH6FuLS/?img_index=4&obrf=MXZjNmcwbWxldjI3Ng==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
         </div>
+
+        <div class="footer-col">
+          <h5>Our Divisions</h5>
+          <ul class="footer-links">
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Digital</a></li>
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Commerce</a></li>
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Web Studio</a></li>
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Academy</a></li>
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Leadership</a></li>
+            <li><a href="index.html#divisions" class="footer-link">Pak Igniters Business Solutions</a></li>
+          </ul>
+        </div>
+
         <div class="footer-col">
           <h5>Quick Links</h5>
           <ul class="footer-links">
             <li><a href="index.html" class="footer-link">Home</a></li>
             <li><a href="about.html" class="footer-link">About Us</a></li>
-            <li><a href="services.html" class="footer-link">Services</a></li>
-            <li><a href="index.html#divisions" class="footer-link">Divisions</a></li>
+            <li><a href="services.html" class="footer-link">Our Services</a></li>
+            <li><a href="index.html#courses" class="footer-link">Courses &amp; Training</a></li>
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="index.html#contact" class="footer-link">Contact Desk</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h5>Direct Contact</h5>
           <ul class="footer-links">
             <li><a href="tel:+923082481481" class="footer-link">📞 +92 308 2 481 481</a></li>
+            <li><a href="https://wa.me/923082481481" target="_blank" rel="noopener noreferrer" class="footer-link">💬 WhatsApp Helpline</a></li>
             <li><a href="mailto:info.pakigniters@gmail.com" class="footer-link">✉️ info.pakigniters@gmail.com</a></li>
-            <li><span style="font-size: 0.78rem; color: var(--text-muted);">Lead Desk: ismail137see@gmail.com</span></li>
+            <li><span style="font-size: 0.82rem; color: var(--text-muted);">Main Desk: Pakistan &bull; Serving Globally</span></li>
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <span>© 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential.</span>
-        <span><a href="admin/login.html" style="color: rgba(255,255,255,0.45); text-decoration: none;">🔒 Staff Login</a></span>
+        <span>&copy; 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential.</span>
+        <span>Learn. Create. Earn. Lead. &bull; <a href="privacy.html" style="color: var(--color-brand-gold);">Privacy Policy</a></span>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/content-data.js"></script>
-  <script src="js/chatbot.js"></script>
   <script src="js/app.js"></script>
-  <script src="admin/js/admin-auth.js"></script>
-  <script src="js/visual-editor.js"></script>
-  <script src="js/odoo-studio.js"></script>
 </body>
 </html>

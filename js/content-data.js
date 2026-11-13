@@ -21,7 +21,7 @@ const PAK_IGNITERS_CONTENT = {
       langSwitch: "اردو"
     },
     hero: {
-      badge: "Official Digital Hub • Staging v1.0",
+      badge: "Official Digital Hub • Pakistan & Global Clients",
       headline: "Unlock Your Potential.",
       supporting: "Learn. Create. Earn. Lead.",
       description: "PAK IGNITERS is an integrated ecosystem dedicated to elevating Pakistan's technological, creative, and entrepreneurial talents through structured divisions, real-world execution, and collaborative mentorship.",
@@ -180,13 +180,13 @@ const PAK_IGNITERS_CONTENT = {
         messagePlaceholder: "Tell us about your requirements, inquiry, or goals...",
         submitBtn: "Send Inquiry",
         validationError: "Please fill in all required fields with valid details.",
-        successMsg: "Inquiry delivered directly to ismail137see@gmail.com and info.pakigniters@gmail.com!"
+        successMsg: "Inquiry delivered directly to info.pakigniters@gmail.com and info.pakigniters@gmail.com!"
       }
     },
     chatbot: {
       triggerTitle: "Chat with AI",
       windowHeader: "Igniter AI Assistant",
-      onlineStatus: "Online • Knowledge Staging",
+      onlineStatus: "Online • Ready to Help",
       greeting: "Salam & Welcome to PAK IGNITERS! I am your AI assistant. How can I help you explore our 6 divisions, academy programs, or website project today?",
       suggestions: [
         "Tell me about the 6 Divisions",
@@ -201,8 +201,8 @@ const PAK_IGNITERS_CONTENT = {
       aboutText: "PAK IGNITERS is on a mission to empower youth, creators, and businesses across Pakistan through modern technology, e-commerce, and world-class education.",
       divisionsHeading: "Our Divisions",
       quickLinksHeading: "Quick Links",
-      legalHeading: "Staging Notice",
-      stagingNotice: "This is a temporary development staging site deployed via Antigravity → GitHub → Vercel for team review. Final launch will occur on the approved official domain.",
+      legalHeading: "Official Governance",
+      stagingNotice: "PAK IGNITERS operates across six specialized divisions under executive leadership, delivering world-class digital services and skill training.",
       copyright: "© 2026 PAK IGNITERS. All rights reserved. Unlock Your Potential."
     }
   },
@@ -382,7 +382,7 @@ const PAK_IGNITERS_CONTENT = {
         messagePlaceholder: "ہمیں اپنی ضروریات یا سوال کے بارے میں بتائیں...",
         submitBtn: "درخواست جمع کروائیں",
         validationError: "براہ کرم تمام مطلوبہ خانے درست معلومات کے ساتھ پر کریں۔",
-        successMsg: "آپ کی انکوائری کامیابی سے ismail137see@gmail.com اور info.pakigniters@gmail.com کو بھیج دی گئی ہے!"
+        successMsg: "آپ کی انکوائری کامیابی سے info.pakigniters@gmail.com اور info.pakigniters@gmail.com کو بھیج دی گئی ہے!"
       }
     },
     chatbot: {
@@ -404,7 +404,7 @@ const PAK_IGNITERS_CONTENT = {
       divisionsHeading: "ہمارے شعبہ جات",
       quickLinksHeading: "اہم لنکس",
       legalHeading: "اسٹیجنگ نوٹس",
-      stagingNotice: "یہ ایک عارضی ڈویلپمنٹ اسٹیجنگ سائٹ ہے جو Antigravity → GitHub → Vercel کے ذریعے ٹیم کے جائزے کے لیے چلائی جا رہی ہے۔ باضابطہ لانچ حتمی ڈومین پر ہوگی۔",
+      stagingNotice: "پاک اگنائٹرز چھ باضابطہ شعبہ جات کے تحت کام کرتا ہے اور معیاری ڈیجیٹل سروسز اور تعلیمی پروگرامز فراہم کرتا ہے۔",
       copyright: "© 2026 پاک اگنائٹرز۔ جملہ حقوق محفوظ ہیں۔ اپنی صلاحیتوں کو اجاگر کریں۔"
     }
   }
